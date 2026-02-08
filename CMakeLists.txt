@@ -20,6 +20,7 @@ set(CORE_SOURCES
     src/cad/Parser.cpp
     src/cad/Packer.cpp
     src/cad/Placer.cpp
+    src/cad/Router.cpp
 
 )
 
@@ -39,3 +40,6 @@ target_link_libraries(packer_test PRIVATE vfpga_core)
 
 add_executable(placer_test tests/placer_test.cpp)
 target_link_libraries(placer_test PRIVATE vfpga_core)
+
+add_executable(router_test tests/router_test.cpp)
+target_link_libraries(router_test PRIVATE vfpga_core)

@@ -181,6 +181,19 @@ placer_test/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/placer_test.dir/build.make CMakeFiles/placer_test.dir/build
 .PHONY : placer_test/fast
 
+#=============================================================================
+# Target rules for targets named router_test
+
+# Build rule for target.
+router_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 router_test
+.PHONY : router_test
+
+# fast build rule for target.
+router_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/router_test.dir/build.make CMakeFiles/router_test.dir/build
+.PHONY : router_test/fast
+
 src/cad/Packer.o: src/cad/Packer.cpp.o
 .PHONY : src/cad/Packer.o
 
@@ -252,6 +265,30 @@ src/cad/Placer.s: src/cad/Placer.cpp.s
 src/cad/Placer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/vfpga_core.dir/build.make CMakeFiles/vfpga_core.dir/src/cad/Placer.cpp.s
 .PHONY : src/cad/Placer.cpp.s
+
+src/cad/Router.o: src/cad/Router.cpp.o
+.PHONY : src/cad/Router.o
+
+# target to build an object file
+src/cad/Router.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vfpga_core.dir/build.make CMakeFiles/vfpga_core.dir/src/cad/Router.cpp.o
+.PHONY : src/cad/Router.cpp.o
+
+src/cad/Router.i: src/cad/Router.cpp.i
+.PHONY : src/cad/Router.i
+
+# target to preprocess a source file
+src/cad/Router.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vfpga_core.dir/build.make CMakeFiles/vfpga_core.dir/src/cad/Router.cpp.i
+.PHONY : src/cad/Router.cpp.i
+
+src/cad/Router.s: src/cad/Router.cpp.s
+.PHONY : src/cad/Router.s
+
+# target to generate assembly for a file
+src/cad/Router.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vfpga_core.dir/build.make CMakeFiles/vfpga_core.dir/src/cad/Router.cpp.s
+.PHONY : src/cad/Router.cpp.s
 
 src/core/LogicVal.o: src/core/LogicVal.cpp.o
 .PHONY : src/core/LogicVal.o
@@ -421,6 +458,30 @@ tests/placer_test.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/placer_test.dir/build.make CMakeFiles/placer_test.dir/tests/placer_test.cpp.s
 .PHONY : tests/placer_test.cpp.s
 
+tests/router_test.o: tests/router_test.cpp.o
+.PHONY : tests/router_test.o
+
+# target to build an object file
+tests/router_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/router_test.dir/build.make CMakeFiles/router_test.dir/tests/router_test.cpp.o
+.PHONY : tests/router_test.cpp.o
+
+tests/router_test.i: tests/router_test.cpp.i
+.PHONY : tests/router_test.i
+
+# target to preprocess a source file
+tests/router_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/router_test.dir/build.make CMakeFiles/router_test.dir/tests/router_test.cpp.i
+.PHONY : tests/router_test.cpp.i
+
+tests/router_test.s: tests/router_test.cpp.s
+.PHONY : tests/router_test.s
+
+# target to generate assembly for a file
+tests/router_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/router_test.dir/build.make CMakeFiles/router_test.dir/tests/router_test.cpp.s
+.PHONY : tests/router_test.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -432,6 +493,7 @@ help:
 	@echo "... packer_test"
 	@echo "... parser_test"
 	@echo "... placer_test"
+	@echo "... router_test"
 	@echo "... vfpga_core"
 	@echo "... vfpga_test"
 	@echo "... src/cad/Packer.o"
@@ -443,6 +505,9 @@ help:
 	@echo "... src/cad/Placer.o"
 	@echo "... src/cad/Placer.i"
 	@echo "... src/cad/Placer.s"
+	@echo "... src/cad/Router.o"
+	@echo "... src/cad/Router.i"
+	@echo "... src/cad/Router.s"
 	@echo "... src/core/LogicVal.o"
 	@echo "... src/core/LogicVal.i"
 	@echo "... src/core/LogicVal.s"
@@ -464,6 +529,9 @@ help:
 	@echo "... tests/placer_test.o"
 	@echo "... tests/placer_test.i"
 	@echo "... tests/placer_test.s"
+	@echo "... tests/router_test.o"
+	@echo "... tests/router_test.i"
+	@echo "... tests/router_test.s"
 .PHONY : help
 
 

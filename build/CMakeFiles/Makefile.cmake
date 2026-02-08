@@ -53,4 +53,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/parser_test.dir/DependInfo.cmake"
   "CMakeFiles/packer_test.dir/DependInfo.cmake"
   "CMakeFiles/placer_test.dir/DependInfo.cmake"
+  "CMakeFiles/router_test.dir/DependInfo.cmake"
   )

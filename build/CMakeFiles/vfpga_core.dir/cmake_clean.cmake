@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/vfpga_core.dir/src/cad/Parser.cpp.o.d"
   "CMakeFiles/vfpga_core.dir/src/cad/Placer.cpp.o"
   "CMakeFiles/vfpga_core.dir/src/cad/Placer.cpp.o.d"
+  "CMakeFiles/vfpga_core.dir/src/cad/Router.cpp.o"
+  "CMakeFiles/vfpga_core.dir/src/cad/Router.cpp.o.d"
   "CMakeFiles/vfpga_core.dir/src/core/LogicVal.cpp.o"
   "CMakeFiles/vfpga_core.dir/src/core/LogicVal.cpp.o.d"
   "CMakeFiles/vfpga_core.dir/src/core/Signal.cpp.o"

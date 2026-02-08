@@ -3,5 +3,6 @@
 /Users/chang/coding/virtual-fpga/build/CMakeFiles/parser_test.dir
 /Users/chang/coding/virtual-fpga/build/CMakeFiles/packer_test.dir
 /Users/chang/coding/virtual-fpga/build/CMakeFiles/placer_test.dir
+/Users/chang/coding/virtual-fpga/build/CMakeFiles/router_test.dir
 /Users/chang/coding/virtual-fpga/build/CMakeFiles/edit_cache.dir
 /Users/chang/coding/virtual-fpga/build/CMakeFiles/rebuild_cache.dir
