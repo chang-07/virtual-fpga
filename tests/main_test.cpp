@@ -1,5 +1,7 @@
 #include "../src/core/LogicVal.hpp"
 #include "../src/core/Signal.hpp"
+#include "../src/fabric/BitstreamLoader.hpp"
+#include "../src/fabric/Fabric.hpp"
 #include "../src/primitives/DFF.hpp"
 #include "../src/primitives/LUT.hpp"
 #include <cassert>
@@ -136,11 +138,40 @@ void test_dff() {
   std::cout << "DFF Tests Passed!" << std::endl;
 }
 
+void test_fabric() {
+  std::cout << "Testing Fabric..." << std::endl;
+
+  // Create a 2x2 fabric
+  vfpga::Fabric fabric(2, 2);
+
+  assert(fabric.width == 2);
+  assert(fabric.height == 2);
+  assert(fabric.size() == 4);
+
+  // Check initial state of a tile
+  vfpga::Tile &t00 = fabric.get_tile(0, 0);
+  assert(t00.x == 0);
+  assert(t00.y == 0);
+  // LUT should be 0s, DFF unknown
+  assert(t00.dff.get_output().is_X());
+
+  // Check bounds checking
+  try {
+    fabric.get_tile(2, 0);
+    assert(false && "Should have thrown out_of_range");
+  } catch (const std::out_of_range &) {
+    // Expected
+  }
+
+  std::cout << "Fabric Tests Passed!" << std::endl;
+}
+
 int main() {
   test_logic_val();
   test_signal_resolution();
   test_lut();
   test_dff();
+  test_fabric();
   std::cout << "All Tests Passed!" << std::endl;
   return 0;
 }

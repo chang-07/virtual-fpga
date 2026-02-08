@@ -190,6 +190,30 @@ src/core/Signal.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/vfpga_core.dir/build.make CMakeFiles/vfpga_core.dir/src/core/Signal.cpp.s
 .PHONY : src/core/Signal.cpp.s
 
+src/fabric/BitstreamLoader.o: src/fabric/BitstreamLoader.cpp.o
+.PHONY : src/fabric/BitstreamLoader.o
+
+# target to build an object file
+src/fabric/BitstreamLoader.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vfpga_core.dir/build.make CMakeFiles/vfpga_core.dir/src/fabric/BitstreamLoader.cpp.o
+.PHONY : src/fabric/BitstreamLoader.cpp.o
+
+src/fabric/BitstreamLoader.i: src/fabric/BitstreamLoader.cpp.i
+.PHONY : src/fabric/BitstreamLoader.i
+
+# target to preprocess a source file
+src/fabric/BitstreamLoader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vfpga_core.dir/build.make CMakeFiles/vfpga_core.dir/src/fabric/BitstreamLoader.cpp.i
+.PHONY : src/fabric/BitstreamLoader.cpp.i
+
+src/fabric/BitstreamLoader.s: src/fabric/BitstreamLoader.cpp.s
+.PHONY : src/fabric/BitstreamLoader.s
+
+# target to generate assembly for a file
+src/fabric/BitstreamLoader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vfpga_core.dir/build.make CMakeFiles/vfpga_core.dir/src/fabric/BitstreamLoader.cpp.s
+.PHONY : src/fabric/BitstreamLoader.cpp.s
+
 tests/main_test.o: tests/main_test.cpp.o
 .PHONY : tests/main_test.o
 
@@ -230,6 +254,9 @@ help:
 	@echo "... src/core/Signal.o"
 	@echo "... src/core/Signal.i"
 	@echo "... src/core/Signal.s"
+	@echo "... src/fabric/BitstreamLoader.o"
+	@echo "... src/fabric/BitstreamLoader.i"
+	@echo "... src/fabric/BitstreamLoader.s"
 	@echo "... tests/main_test.o"
 	@echo "... tests/main_test.i"
 	@echo "... tests/main_test.s"

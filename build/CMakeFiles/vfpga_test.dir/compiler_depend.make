@@ -962,8 +962,15 @@ CMakeFiles/vfpga_test.dir/tests/main_test.cpp.o: /Users/chang/coding/virtual-fpg
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/xlocale/_wchar.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/xlocale/_wctype.h \
   /Users/chang/coding/virtual-fpga/src/core/LogicVal.hpp \
-  /Users/chang/coding/virtual-fpga/src/core/Signal.hpp
+  /Users/chang/coding/virtual-fpga/src/core/Signal.hpp \
+  /Users/chang/coding/virtual-fpga/src/core/LogicVal.hpp \
+  /Users/chang/coding/virtual-fpga/src/primitives/DFF.hpp \
+  /Users/chang/coding/virtual-fpga/src/primitives/LUT.hpp
 
+
+/Users/chang/coding/virtual-fpga/src/primitives/LUT.hpp:
+
+/Users/chang/coding/virtual-fpga/src/primitives/DFF.hpp:
 
 /Users/chang/coding/virtual-fpga/src/core/Signal.hpp:
 

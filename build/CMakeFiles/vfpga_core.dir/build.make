@@ -100,19 +100,35 @@ CMakeFiles/vfpga_core.dir/src/core/Signal.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/vfpga_core.dir/src/core/Signal.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/chang/coding/virtual-fpga/src/core/Signal.cpp -o CMakeFiles/vfpga_core.dir/src/core/Signal.cpp.s
 
+CMakeFiles/vfpga_core.dir/src/fabric/BitstreamLoader.cpp.o: CMakeFiles/vfpga_core.dir/flags.make
+CMakeFiles/vfpga_core.dir/src/fabric/BitstreamLoader.cpp.o: /Users/chang/coding/virtual-fpga/src/fabric/BitstreamLoader.cpp
+CMakeFiles/vfpga_core.dir/src/fabric/BitstreamLoader.cpp.o: CMakeFiles/vfpga_core.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/chang/coding/virtual-fpga/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/vfpga_core.dir/src/fabric/BitstreamLoader.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/vfpga_core.dir/src/fabric/BitstreamLoader.cpp.o -MF CMakeFiles/vfpga_core.dir/src/fabric/BitstreamLoader.cpp.o.d -o CMakeFiles/vfpga_core.dir/src/fabric/BitstreamLoader.cpp.o -c /Users/chang/coding/virtual-fpga/src/fabric/BitstreamLoader.cpp
+
+CMakeFiles/vfpga_core.dir/src/fabric/BitstreamLoader.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/vfpga_core.dir/src/fabric/BitstreamLoader.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/chang/coding/virtual-fpga/src/fabric/BitstreamLoader.cpp > CMakeFiles/vfpga_core.dir/src/fabric/BitstreamLoader.cpp.i
+
+CMakeFiles/vfpga_core.dir/src/fabric/BitstreamLoader.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/vfpga_core.dir/src/fabric/BitstreamLoader.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/chang/coding/virtual-fpga/src/fabric/BitstreamLoader.cpp -o CMakeFiles/vfpga_core.dir/src/fabric/BitstreamLoader.cpp.s
+
 # Object files for target vfpga_core
 vfpga_core_OBJECTS = \
 "CMakeFiles/vfpga_core.dir/src/core/LogicVal.cpp.o" \
-"CMakeFiles/vfpga_core.dir/src/core/Signal.cpp.o"
+"CMakeFiles/vfpga_core.dir/src/core/Signal.cpp.o" \
+"CMakeFiles/vfpga_core.dir/src/fabric/BitstreamLoader.cpp.o"
 
 # External object files for target vfpga_core
 vfpga_core_EXTERNAL_OBJECTS =
 
 libvfpga_core.a: CMakeFiles/vfpga_core.dir/src/core/LogicVal.cpp.o
 libvfpga_core.a: CMakeFiles/vfpga_core.dir/src/core/Signal.cpp.o
+libvfpga_core.a: CMakeFiles/vfpga_core.dir/src/fabric/BitstreamLoader.cpp.o
 libvfpga_core.a: CMakeFiles/vfpga_core.dir/build.make
 libvfpga_core.a: CMakeFiles/vfpga_core.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/chang/coding/virtual-fpga/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library libvfpga_core.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/chang/coding/virtual-fpga/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX static library libvfpga_core.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/vfpga_core.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/vfpga_core.dir/link.txt --verbose=$(VERBOSE)
 

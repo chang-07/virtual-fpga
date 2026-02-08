@@ -16,6 +16,7 @@ endif()
 set(CORE_SOURCES
     src/core/LogicVal.cpp
     src/core/Signal.cpp
+    src/fabric/BitstreamLoader.cpp
 )
 
 # Create library for core logic

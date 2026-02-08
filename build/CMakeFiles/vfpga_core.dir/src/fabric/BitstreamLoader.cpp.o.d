@@ -1,6 +1,10 @@
-CMakeFiles/vfpga_test.dir/tests/main_test.cpp.o: \
-  /Users/chang/coding/virtual-fpga/tests/main_test.cpp \
-  /Users/chang/coding/virtual-fpga/tests/../src/core/LogicVal.hpp \
+CMakeFiles/vfpga_core.dir/src/fabric/BitstreamLoader.cpp.o: \
+  /Users/chang/coding/virtual-fpga/src/fabric/BitstreamLoader.cpp \
+  /Users/chang/coding/virtual-fpga/src/fabric/BitstreamLoader.hpp \
+  /Users/chang/coding/virtual-fpga/src/fabric/Fabric.hpp \
+  /Users/chang/coding/virtual-fpga/src/fabric/Tile.hpp \
+  /Users/chang/coding/virtual-fpga/src/fabric/../primitives/DFF.hpp \
+  /Users/chang/coding/virtual-fpga/src/fabric/../primitives/../core/LogicVal.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__assert \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__assertion_handler \
@@ -956,13 +960,7 @@ CMakeFiles/vfpga_test.dir/tests/main_test.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__format/formatter_tuple.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/print \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/unistd.h \
-  /Users/chang/coding/virtual-fpga/tests/../src/core/Signal.hpp \
-  /Users/chang/coding/virtual-fpga/tests/../src/fabric/BitstreamLoader.hpp \
-  /Users/chang/coding/virtual-fpga/tests/../src/fabric/Fabric.hpp \
-  /Users/chang/coding/virtual-fpga/tests/../src/fabric/Tile.hpp \
-  /Users/chang/coding/virtual-fpga/tests/../src/fabric/../primitives/DFF.hpp \
-  /Users/chang/coding/virtual-fpga/tests/../src/fabric/../primitives/../core/LogicVal.hpp \
-  /Users/chang/coding/virtual-fpga/tests/../src/fabric/../primitives/LUT.hpp \
+  /Users/chang/coding/virtual-fpga/src/fabric/../primitives/LUT.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/fstream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/filesystem \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/copy_options.h \
@@ -982,10 +980,4 @@ CMakeFiles/vfpga_test.dir/tests/main_test.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/directory_options.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/path_iterator.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/recursive_directory_iterator.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/u8path.h \
-  /Users/chang/coding/virtual-fpga/tests/../src/primitives/DFF.hpp \
-  /Users/chang/coding/virtual-fpga/tests/../src/primitives/LUT.hpp \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/cassert \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/assert.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_assert.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_static_assert.h
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/u8path.h
