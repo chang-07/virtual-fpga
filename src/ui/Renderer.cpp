@@ -131,29 +131,141 @@ void Renderer::draw(const Fabric &fabric, const Router &router,
 
   EndMode2D();
 
-  // Draw UI Panel
-  // Bottom bar
+  // Draw UI Overlays
+  draw_inspector(fabric);
+  draw_sidebar(on_step, on_reset);
+
+  // Auto-step logic
+  if (!simulation_paused && on_step) {
+    time_accumulator += GetFrameTime();
+    if (time_accumulator >= (1.0f / simulation_speed)) {
+      on_step();
+      time_accumulator = 0.0f;
+    }
+  }
+
+  DrawFPS(window_width - 80, 10);
+
+  EndDrawing();
+}
+
+void Renderer::draw_sidebar(std::function<void()> on_step,
+                            std::function<void()> on_reset) {
   float ui_height = 80;
   float y_start = window_height - ui_height;
 
   DrawRectangle(0, y_start, window_width, ui_height, LIGHTGRAY);
   DrawLine(0, y_start, window_width, y_start, GRAY);
 
-  // Controls
-  if (GuiButton({10, y_start + 10, 100, 30}, "Step Clock")) {
-    if (on_step)
+  // Layout
+  float x = 10;
+  float y = y_start + 10;
+  float btn_w = 100;
+  float btn_h = 30;
+  float gap = 10;
+
+  // Single Step
+  if (GuiButton({x, y, btn_w, btn_h}, "Step Clock")) {
+    if (on_step) {
       on_step();
+      simulation_paused = true; // Pause on manual step
+    }
   }
+  x += btn_w + gap;
 
-  if (GuiButton({120, y_start + 10, 100, 30}, "Reset")) {
-    if (on_reset)
+  // Reset
+  if (GuiButton({x, y, btn_w, btn_h}, "Reset")) {
+    if (on_reset) {
       on_reset();
+      simulation_paused = true;
+    }
   }
+  x += btn_w + gap;
 
-  // Draw FPS
-  DrawFPS(window_width - 80, 10);
+  // Play/Pause
+  const char *play_label = simulation_paused ? "Play" : "Pause";
+  if (GuiButton({x, y, btn_w, btn_h}, play_label)) {
+    simulation_paused = !simulation_paused;
+  }
+  x += btn_w + gap;
 
-  EndDrawing();
+  // Speed Slider
+  GuiSlider({x, y, 150, btn_h}, "Speed",
+            TextFormat("%.1f Hz", simulation_speed), &simulation_speed, 1.0f,
+            60.0f);
+}
+
+void Renderer::draw_inspector(const Fabric &fabric) {
+  // Get coordinate under mouse (using camera)
+  Vector2 mouseWorldPos = GetScreenToWorld2D(GetMousePosition(), camera);
+
+  // Calculate grid indices
+  int padding = 20; // Hardcoded in draw_grid unfortunately
+  int available_w = window_width - 2 * padding;
+  int available_h = window_height - 100; // - UI height
+  int tile_w = available_w / fabric.width;
+  int tile_h = available_h / fabric.height;
+  int tile_size = (tile_w < tile_h) ? tile_w : tile_h;
+  int grid_start_x = (window_width - (tile_size * fabric.width)) / 2;
+  int grid_start_y = (available_h - (tile_size * fabric.height)) / 2 + padding;
+
+  int tx = (mouseWorldPos.x - grid_start_x) / tile_size;
+  int ty = (mouseWorldPos.y - grid_start_y) / tile_size;
+
+  // Check bounds
+  if (tx >= 0 && tx < fabric.width && ty >= 0 && ty < fabric.height) {
+    // Valid tile hovered
+    const Tile &tile = fabric.get_tile(tx, ty);
+    LogicVal output = fabric.get_output(tx, ty);
+
+    // Draw Inspector Panel (Top Right)
+    float panel_w = 200;
+    float panel_h = 120;
+    // float panel_x = window_width - panel_w - 10;
+    // float panel_y = 10;
+    // Actually let's put it top left to avoid FPS
+    float panel_x = 10;
+    float panel_y = 10;
+
+    DrawRectangle(panel_x, panel_y, panel_w, panel_h, Fade(SKYBLUE, 0.9f));
+    DrawRectangleLines(panel_x, panel_y, panel_w, panel_h, BLUE);
+
+    int text_x = panel_x + 10;
+    int text_y = panel_y + 10;
+    int line_h = 20;
+
+    DrawText(TextFormat("Tile (%d, %d)", tx, ty), text_x, text_y, 20, DARKBLUE);
+    text_y += 25;
+
+    const char *type_str = "UNKNOWN";
+    switch (tile.type) {
+    case TileType::CLB:
+      type_str = "CLB (Logic)";
+      break;
+    case TileType::BRAM:
+      type_str = "BRAM (Memory)";
+      break;
+    case TileType::DSP:
+      type_str = "DSP (Math)";
+      break;
+    case TileType::IO:
+      type_str = "I/O Pad";
+      break;
+    }
+    DrawText(TextFormat("Type: %s", type_str), text_x, text_y, 10, BLACK);
+    text_y += line_h;
+
+    DrawText(TextFormat("Output: %s", output.to_string().c_str()), text_x,
+             text_y, 10, BLACK);
+    text_y += line_h;
+
+    // Highlight hovered tile
+    int px = grid_start_x + tx * tile_size;
+    int py = grid_start_y + ty * tile_size;
+    DrawRectangleLinesEx(
+        {(float)px, (float)py, (float)tile_size, (float)tile_size}, 2.0f,
+        YELLOW);
+  }
 }
 
 void Renderer::draw_grid(Fabric &fabric) {

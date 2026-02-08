@@ -961,6 +961,7 @@ CMakeFiles/renderer_test.dir/src/ui/Renderer.cpp.o: /Users/chang/coding/virtual-
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/xlocale/_wchar.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/xlocale/_wctype.h \
   _deps/raylib-src/src/raylib.h \
+  _deps/raylib-src/src/raymath.h \
   /Users/chang/coding/virtual-fpga/src/core/LogicVal.hpp \
   /Users/chang/coding/virtual-fpga/src/primitives/BRAM.hpp \
   /Users/chang/coding/virtual-fpga/src/primitives/DFF.hpp \
@@ -1941,6 +1942,7 @@ CMakeFiles/renderer_test.dir/tests/renderer_test.cpp.o: /Users/chang/coding/virt
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/xlocale/_time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/xlocale/_wchar.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/xlocale/_wctype.h \
+  _deps/raylib-src/src/raylib.h \
   /Users/chang/coding/virtual-fpga/src/core/LogicVal.hpp \
   /Users/chang/coding/virtual-fpga/src/primitives/BRAM.hpp \
   /Users/chang/coding/virtual-fpga/src/primitives/DFF.hpp \
@@ -3124,6 +3126,8 @@ _deps/raylib-src/src/raylib.h:
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/is_member_pointer.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__bit/has_single_bit.h:
+
+_deps/raylib-src/src/raymath.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/three_way_comp_ref_type.h:
 

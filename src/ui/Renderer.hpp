@@ -30,9 +30,17 @@ private:
   int window_width;
   int window_height;
 
+  // UI State
+  bool simulation_paused = true;
+  float simulation_speed = 5.0f; // Steps per second
+  float time_accumulator = 0.0f;
+
   // Drawing helpers
   void update_camera();
   void draw_grid(Fabric &fabric);
+  void draw_sidebar(std::function<void()> on_step,
+                    std::function<void()> on_reset);
+  void draw_inspector(const Fabric &fabric);
   // void draw_wires(...)
 
   Camera2D camera;

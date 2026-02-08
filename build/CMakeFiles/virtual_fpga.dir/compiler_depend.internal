@@ -1963,6 +1963,7 @@ CMakeFiles/virtual_fpga.dir/src/ui/Renderer.cpp.o
  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/xlocale/_wchar.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/xlocale/_wctype.h
  /Users/chang/coding/virtual-fpga/build/_deps/raylib-src/src/raylib.h
+ /Users/chang/coding/virtual-fpga/build/_deps/raylib-src/src/raymath.h
  /Users/chang/coding/virtual-fpga/src/core/LogicVal.hpp
  /Users/chang/coding/virtual-fpga/src/primitives/BRAM.hpp
  /Users/chang/coding/virtual-fpga/src/primitives/DFF.hpp
