@@ -49,6 +49,32 @@ std::vector<LogicBlock> Packer::pack(const Netlist &netlist) {
       if (cell->ports.count("C") && cell->ports.at("C").connected_net) {
         block.clock_net = cell->ports.at("C").connected_net->name;
       }
+    } else if (cell->type == "$mem" || cell->type == "BRAM") {
+      block.type = TileType::BRAM;
+      // Simplistic mapping:
+      // ADDR -> Input[0..N]
+      // DATA -> Input[N+1..M]
+      // OUT -> Output
+      for (const auto &[port_name, port] : cell->ports) {
+        if (port.direction == PortDirection::INPUT) {
+          if (port.connected_net)
+            block.input_nets.push_back(port.connected_net->name);
+        } else if (port.direction == PortDirection::OUTPUT) {
+          if (port.connected_net)
+            block.output_net = port.connected_net->name;
+        }
+      }
+    } else if (cell->type == "$mul" || cell->type == "DSP") {
+      block.type = TileType::DSP;
+      for (const auto &[port_name, port] : cell->ports) {
+        if (port.direction == PortDirection::INPUT) {
+          if (port.connected_net)
+            block.input_nets.push_back(port.connected_net->name);
+        } else if (port.direction == PortDirection::OUTPUT) {
+          if (port.connected_net)
+            block.output_net = port.connected_net->name;
+        }
+      }
     }
 
     blocks.push_back(block);

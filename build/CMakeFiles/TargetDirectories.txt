@@ -5,6 +5,8 @@
 /Users/chang/coding/virtual-fpga/build/CMakeFiles/placer_test.dir
 /Users/chang/coding/virtual-fpga/build/CMakeFiles/router_test.dir
 /Users/chang/coding/virtual-fpga/build/CMakeFiles/flow_test.dir
+/Users/chang/coding/virtual-fpga/build/CMakeFiles/timing_test.dir
+/Users/chang/coding/virtual-fpga/build/CMakeFiles/hard_block_test.dir
 /Users/chang/coding/virtual-fpga/build/CMakeFiles/virtual_fpga.dir
 /Users/chang/coding/virtual-fpga/build/CMakeFiles/renderer_test.dir
 /Users/chang/coding/virtual-fpga/build/CMakeFiles/package.dir

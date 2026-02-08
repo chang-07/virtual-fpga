@@ -971,6 +971,10 @@ CMakeFiles/vfpga_core.dir/src/analysis/TimingAnalyzer.cpp.o: /Users/chang/coding
   /Users/chang/coding/virtual-fpga/src/cad/LogicBlock.hpp \
   /Users/chang/coding/virtual-fpga/src/cad/Router.hpp \
   /Users/chang/coding/virtual-fpga/src/fabric/Fabric.hpp \
+  /Users/chang/coding/virtual-fpga/src/primitives/BRAM.hpp \
+  /Users/chang/coding/virtual-fpga/src/primitives/DFF.hpp \
+  /Users/chang/coding/virtual-fpga/src/primitives/DSP.hpp \
+  /Users/chang/coding/virtual-fpga/src/primitives/LUT.hpp \
   /Users/chang/coding/virtual-fpga/src/analysis/TimingAnalyzer.hpp
 
 CMakeFiles/vfpga_core.dir/src/cad/Packer.cpp.o: /Users/chang/coding/virtual-fpga/src/cad/Packer.cpp \

@@ -969,4 +969,8 @@ CMakeFiles/vfpga_core.dir/src/analysis/TimingAnalyzer.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/map \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__tree \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/set \
-  /Users/chang/coding/virtual-fpga/src/analysis/../fabric/Fabric.hpp
+  /Users/chang/coding/virtual-fpga/src/analysis/../fabric/Fabric.hpp \
+  /Users/chang/coding/virtual-fpga/src/analysis/../primitives/BRAM.hpp \
+  /Users/chang/coding/virtual-fpga/src/analysis/../primitives/DFF.hpp \
+  /Users/chang/coding/virtual-fpga/src/analysis/../primitives/DSP.hpp \
+  /Users/chang/coding/virtual-fpga/src/analysis/../primitives/LUT.hpp

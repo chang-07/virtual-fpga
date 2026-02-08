@@ -14,23 +14,55 @@ Placer::place(Fabric &fabric, const std::vector<LogicBlock> &blocks) {
   }
 
   std::map<int, std::pair<int, int>> current_locs;
-  std::vector<std::pair<int, int>> free_tiles;
 
-  // 1. Random Initialization
-  std::vector<std::pair<int, int>> all_tiles;
+  // 1. Organize Fabric Tiles by Type
+  std::vector<std::pair<int, int>> clb_tiles;
+  std::vector<std::pair<int, int>> bram_tiles;
+  std::vector<std::pair<int, int>> dsp_tiles;
+  std::vector<std::pair<int, int>> io_tiles;
+
   for (const auto &tile : fabric.grid) {
-    all_tiles.push_back({tile.x, tile.y});
+    if (tile.type == TileType::CLB)
+      clb_tiles.push_back({tile.x, tile.y});
+    else if (tile.type == TileType::BRAM)
+      bram_tiles.push_back({tile.x, tile.y});
+    else if (tile.type == TileType::DSP)
+      dsp_tiles.push_back({tile.x, tile.y});
+    else if (tile.type == TileType::IO)
+      io_tiles.push_back({tile.x, tile.y});
   }
 
+  // 2. Random Initialization respecting types
   std::random_device rd;
   std::mt19937 g(rd());
-  std::shuffle(all_tiles.begin(), all_tiles.end(), g);
+  std::shuffle(clb_tiles.begin(), clb_tiles.end(), g);
+  std::shuffle(bram_tiles.begin(), bram_tiles.end(), g);
+  std::shuffle(dsp_tiles.begin(), dsp_tiles.end(), g);
 
-  for (size_t i = 0; i < blocks.size(); ++i) {
-    current_locs[blocks[i].id] = all_tiles[i];
-  }
-  for (size_t i = blocks.size(); i < all_tiles.size(); ++i) {
-    free_tiles.push_back(all_tiles[i]);
+  size_t clb_idx = 0;
+  size_t bram_idx = 0;
+  size_t dsp_idx = 0;
+
+  for (const auto &block : blocks) {
+    if (block.type == TileType::CLB) {
+      if (clb_idx >= clb_tiles.size())
+        throw std::runtime_error("Not enough CLB tiles");
+      current_locs[block.id] = clb_tiles[clb_idx++];
+    } else if (block.type == TileType::BRAM) {
+      if (bram_idx >= bram_tiles.size())
+        throw std::runtime_error("Not enough BRAM tiles");
+      current_locs[block.id] = bram_tiles[bram_idx++];
+    } else if (block.type == TileType::DSP) {
+      if (dsp_idx >= dsp_tiles.size())
+        throw std::runtime_error("Not enough DSP tiles");
+      current_locs[block.id] = dsp_tiles[dsp_idx++];
+    } else {
+      // Fallback or IO?
+      // Treating others as CLB for now or throw
+      if (clb_idx >= clb_tiles.size())
+        throw std::runtime_error("Not enough tiles for unknown type");
+      current_locs[block.id] = clb_tiles[clb_idx++];
+    }
   }
 
   double current_cost = calculate_cost(blocks, current_locs);
@@ -44,31 +76,30 @@ Placer::place(Fabric &fabric, const std::vector<LogicBlock> &blocks) {
   // Annealing Loop
   while (temp > final_temp) {
     for (int i = 0; i < moves_per_temp; ++i) {
-      // Propose a move:
-      // 1. Move a block to an empty tile
-      // 2. Swap two blocks
-
-      // For simplicity, let's pick a random block and move it to a random new
-      // location (either empty or occupied)
-
       if (blocks.empty())
         break;
 
       std::uniform_int_distribution<> distr_block(0, blocks.size() - 1);
       int idx = distr_block(g);
-      int block_id = blocks[idx].id;
+      const auto &block = blocks[idx];
+      int block_id = block.id;
 
-      // Pick a destination tile
-      // It could be from free_tiles OR from current_locs (swap)
-      // Let's just pick any tile in the fabric
-      std::uniform_int_distribution<> distr_x(0, fabric.width - 1);
-      std::uniform_int_distribution<> distr_y(0, fabric.height - 1);
-      int new_x = distr_x(g);
-      int new_y = distr_y(g);
+      // Pick a destination tile COMPATIBLE with block type
+      std::pair<int, int> new_pos;
+      if (block.type == TileType::CLB) {
+        std::uniform_int_distribution<> d(0, clb_tiles.size() - 1);
+        new_pos = clb_tiles[d(g)];
+      } else if (block.type == TileType::BRAM) {
+        std::uniform_int_distribution<> d(0, bram_tiles.size() - 1);
+        new_pos = bram_tiles[d(g)];
+      } else if (block.type == TileType::DSP) {
+        std::uniform_int_distribution<> d(0, dsp_tiles.size() - 1);
+        new_pos = dsp_tiles[d(g)];
+      } else {
+        continue;
+      }
 
       std::pair<int, int> old_pos = current_locs[block_id];
-      std::pair<int, int> new_pos = {new_x, new_y};
-
       if (old_pos == new_pos)
         continue;
 
@@ -81,8 +112,7 @@ Placer::place(Fabric &fabric, const std::vector<LogicBlock> &blocks) {
         }
       }
 
-      // Calculate delta cost locally? Or just full recalculate for simplicity
-      // (slower but safer) Let's do full recalculate first Temporary apply move
+      // Apply move
       current_locs[block_id] = new_pos;
       if (occupied_by != -1) {
         current_locs[occupied_by] = old_pos; // Swap
@@ -113,8 +143,6 @@ Placer::place(Fabric &fabric, const std::vector<LogicBlock> &blocks) {
       }
     }
     temp *= alpha;
-    // Optionally print progress
-    // std::cout << "Temp: " << temp << " Cost: " << current_cost << std::endl;
   }
 
   std::cout << "Final Placement Cost: " << current_cost << std::endl;

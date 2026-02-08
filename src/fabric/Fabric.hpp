@@ -14,6 +14,15 @@ public:
 
   Fabric(int w, int h);
 
+  struct Point {
+    int x, y;
+  };
+  struct Connectivity {
+    Point source;
+    std::vector<Point> sinks;
+  };
+  std::vector<Connectivity> nets;
+
   // Accessors
   Tile &get_tile(int x, int y);
   const Tile &get_tile(int x, int y) const;

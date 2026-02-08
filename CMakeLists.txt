@@ -60,6 +60,12 @@ target_link_libraries(router_test PRIVATE vfpga_core)
 add_executable(flow_test tests/flow_test.cpp)
 target_link_libraries(flow_test PRIVATE vfpga_core)
 
+add_executable(timing_test tests/timing_test.cpp)
+target_link_libraries(timing_test PRIVATE vfpga_core)
+
+add_executable(hard_block_test tests/hard_block_test.cpp)
+target_link_libraries(hard_block_test PRIVATE vfpga_core)
+
 # Main Application
 add_executable(virtual_fpga src/main.cpp src/ui/Renderer.cpp)
 target_link_libraries(virtual_fpga PRIVATE vfpga_core raylib)

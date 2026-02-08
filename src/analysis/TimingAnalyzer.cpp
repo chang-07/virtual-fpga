@@ -1,7 +1,12 @@
 #include "TimingAnalyzer.hpp"
+#include "../primitives/BRAM.hpp"
+#include "../primitives/DFF.hpp"
+#include "../primitives/DSP.hpp"
+#include "../primitives/LUT.hpp"
 #include <algorithm>
 #include <cmath>
 #include <iostream>
+#include <map>
 
 namespace vfpga {
 
@@ -9,8 +14,10 @@ TimingResult TimingAnalyzer::analyze() {
   TimingResult result;
   result.fmax_mhz = 0.0;
   result.critical_path_delay_ns = 0.0;
+  result.critical_path_nodes.clear();
 
   std::map<std::pair<int, int>, double> arrival_times;
+  std::map<std::pair<int, int>, std::pair<int, int>> prev_node;
 
   // Step 1: Initialize Arrival Times (Sources)
   for (int y = 0; y < fabric.height; ++y) {
@@ -24,16 +31,19 @@ TimingResult TimingAnalyzer::analyze() {
         // BRAM read delay
         arrival_times[{x, y}] = BRAM::DELAY_READ_PS;
       } else if (tile.type == TileType::DSP) {
-        // DSP output delay (let's assume registered for now or combinational
-        // from inputs) Simplified: registered
+        // DSP output delay
         arrival_times[{x, y}] = DSP::DELAY_MUL_PS;
+      } else {
+        arrival_times[{x, y}] = 0.0; // Input pads or others
       }
+      prev_node[{x, y}] = {-1, -1}; // No predecessor
     }
   }
 
   // Step 2: Propagate Delays
   int max_depth = fabric.width * fabric.height;
   double max_arrival = 0;
+  std::pair<int, int> worst_node = {-1, -1};
 
   for (int iter = 0; iter < max_depth; ++iter) {
     bool changed = false;
@@ -66,9 +76,12 @@ TimingResult TimingAnalyzer::analyze() {
 
         if (new_time > arrival_times[{dst_x, dst_y}]) {
           arrival_times[{dst_x, dst_y}] = new_time;
+          prev_node[{dst_x, dst_y}] = {src_x, src_y};
           changed = true;
+
           if (new_time > max_arrival) {
             max_arrival = new_time;
+            worst_node = {dst_x, dst_y};
           }
         }
       }
@@ -78,16 +91,33 @@ TimingResult TimingAnalyzer::analyze() {
       break;
   }
 
-  // Step 3: Check Setup Constraints
-  // Simplified: path + setup
-  double total_path = max_arrival + DFF::DELAY_SETUP_PS;
-
+  // Step 3: Check Setup Constraints & Backtrace
+  double total_path = max_arrival + DFF::DELAY_SETUP_PS; // Add setup time
   result.critical_path_delay_ns = total_path / 1000.0;
 
   if (result.critical_path_delay_ns > 0) {
     result.fmax_mhz = 1000.0 / result.critical_path_delay_ns;
   } else {
     result.fmax_mhz = 0;
+  }
+
+  // Backtrace
+  if (worst_node.first != -1) {
+    std::pair<int, int> curr = worst_node;
+    while (curr.first != -1) {
+      result.critical_path_nodes.push_back(curr);
+      curr = prev_node[curr];
+
+      // Safety check for loops (though propagation algorithm is acyclic-ish)
+      if (std::find(result.critical_path_nodes.begin(),
+                    result.critical_path_nodes.end(),
+                    curr) != result.critical_path_nodes.end()) {
+        break; // Loop detected
+      }
+    }
+    // Reverse to get Source -> Sink order
+    std::reverse(result.critical_path_nodes.begin(),
+                 result.critical_path_nodes.end());
   }
 
   return result;

@@ -273,6 +273,32 @@ flow_test/fast:
 .PHONY : flow_test/fast
 
 #=============================================================================
+# Target rules for targets named timing_test
+
+# Build rule for target.
+timing_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 timing_test
+.PHONY : timing_test
+
+# fast build rule for target.
+timing_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/timing_test.dir/build.make CMakeFiles/timing_test.dir/build
+.PHONY : timing_test/fast
+
+#=============================================================================
+# Target rules for targets named hard_block_test
+
+# Build rule for target.
+hard_block_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hard_block_test
+.PHONY : hard_block_test
+
+# fast build rule for target.
+hard_block_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hard_block_test.dir/build.make CMakeFiles/hard_block_test.dir/build
+.PHONY : hard_block_test/fast
+
+#=============================================================================
 # Target rules for targets named virtual_fpga
 
 # Build rule for target.
@@ -641,6 +667,30 @@ tests/flow_test.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/flow_test.dir/build.make CMakeFiles/flow_test.dir/tests/flow_test.cpp.s
 .PHONY : tests/flow_test.cpp.s
 
+tests/hard_block_test.o: tests/hard_block_test.cpp.o
+.PHONY : tests/hard_block_test.o
+
+# target to build an object file
+tests/hard_block_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hard_block_test.dir/build.make CMakeFiles/hard_block_test.dir/tests/hard_block_test.cpp.o
+.PHONY : tests/hard_block_test.cpp.o
+
+tests/hard_block_test.i: tests/hard_block_test.cpp.i
+.PHONY : tests/hard_block_test.i
+
+# target to preprocess a source file
+tests/hard_block_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hard_block_test.dir/build.make CMakeFiles/hard_block_test.dir/tests/hard_block_test.cpp.i
+.PHONY : tests/hard_block_test.cpp.i
+
+tests/hard_block_test.s: tests/hard_block_test.cpp.s
+.PHONY : tests/hard_block_test.s
+
+# target to generate assembly for a file
+tests/hard_block_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hard_block_test.dir/build.make CMakeFiles/hard_block_test.dir/tests/hard_block_test.cpp.s
+.PHONY : tests/hard_block_test.cpp.s
+
 tests/main_test.o: tests/main_test.cpp.o
 .PHONY : tests/main_test.o
 
@@ -785,6 +835,30 @@ tests/router_test.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/router_test.dir/build.make CMakeFiles/router_test.dir/tests/router_test.cpp.s
 .PHONY : tests/router_test.cpp.s
 
+tests/timing_test.o: tests/timing_test.cpp.o
+.PHONY : tests/timing_test.o
+
+# target to build an object file
+tests/timing_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/timing_test.dir/build.make CMakeFiles/timing_test.dir/tests/timing_test.cpp.o
+.PHONY : tests/timing_test.cpp.o
+
+tests/timing_test.i: tests/timing_test.cpp.i
+.PHONY : tests/timing_test.i
+
+# target to preprocess a source file
+tests/timing_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/timing_test.dir/build.make CMakeFiles/timing_test.dir/tests/timing_test.cpp.i
+.PHONY : tests/timing_test.cpp.i
+
+tests/timing_test.s: tests/timing_test.cpp.s
+.PHONY : tests/timing_test.s
+
+# target to generate assembly for a file
+tests/timing_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/timing_test.dir/build.make CMakeFiles/timing_test.dir/tests/timing_test.cpp.s
+.PHONY : tests/timing_test.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -803,12 +877,14 @@ help:
 	@echo "... update_mappings"
 	@echo "... flow_test"
 	@echo "... glfw"
+	@echo "... hard_block_test"
 	@echo "... packer_test"
 	@echo "... parser_test"
 	@echo "... placer_test"
 	@echo "... raylib"
 	@echo "... renderer_test"
 	@echo "... router_test"
+	@echo "... timing_test"
 	@echo "... vfpga_core"
 	@echo "... vfpga_test"
 	@echo "... virtual_fpga"
@@ -848,6 +924,9 @@ help:
 	@echo "... tests/flow_test.o"
 	@echo "... tests/flow_test.i"
 	@echo "... tests/flow_test.s"
+	@echo "... tests/hard_block_test.o"
+	@echo "... tests/hard_block_test.i"
+	@echo "... tests/hard_block_test.s"
 	@echo "... tests/main_test.o"
 	@echo "... tests/main_test.i"
 	@echo "... tests/main_test.s"
@@ -866,6 +945,9 @@ help:
 	@echo "... tests/router_test.o"
 	@echo "... tests/router_test.i"
 	@echo "... tests/router_test.s"
+	@echo "... tests/timing_test.o"
+	@echo "... tests/timing_test.i"
+	@echo "... tests/timing_test.s"
 .PHONY : help
 
 

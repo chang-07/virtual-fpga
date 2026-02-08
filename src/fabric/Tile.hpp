@@ -29,6 +29,39 @@ struct Tile {
   // We need a way to store routing configuration.
   std::vector<int> input_mux_selects;
 
+  // Simulation Methods
+  LogicVal evaluate_combinational() {
+    if (type == TileType::CLB) {
+      // LUT evaluation. Need inputs.
+      // For now, assuming fixed inputs from "somewhere"
+      // This is tricky because LUT needs vector<LogicVal> inputs.
+      // We need a way to store current input values on the tile.
+      return LogicState::LX;
+    } else if (type == TileType::DSP) {
+      // DSP evaluation
+      return dsp.evaluate(LogicState::L1, LogicState::L1); // Placeholder
+    } else if (type == TileType::BRAM) {
+      // BRAM read (async)
+      // return bram.read(addr);
+      return LogicState::LX;
+    }
+    return LogicState::LX;
+  }
+
+  void update_synchronous() {
+    if (type == TileType::CLB) {
+      dff.update();
+    } else if (type == TileType::BRAM) {
+      // bram.write(addr, data);
+    }
+  }
+
+  // Helper to set inputs (Magic Routing)
+  std::vector<LogicVal> inputs;
+  void set_inputs(const std::vector<LogicVal> &new_inputs) {
+    inputs = new_inputs;
+  }
+
   Tile() : x(0), y(0) { input_mux_selects.resize(4, 0); }
 
   Tile(int x_pos, int y_pos) : x(x_pos), y(y_pos) {
