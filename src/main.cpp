@@ -18,7 +18,9 @@ int main() {
     // Update Simulation (TODO)
 
     // Draw
-    renderer.draw(fabric);
+    renderer.draw(
+        fabric, [&]() { std::cout << "Step Clock!" << std::endl; },
+        [&]() { std::cout << "Reset!" << std::endl; });
   }
 
   return 0;

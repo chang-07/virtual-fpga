@@ -13,6 +13,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/vfpga_core.dir/src/core/Signal.cpp.o.d"
   "CMakeFiles/vfpga_core.dir/src/fabric/BitstreamLoader.cpp.o"
   "CMakeFiles/vfpga_core.dir/src/fabric/BitstreamLoader.cpp.o.d"
+  "CMakeFiles/vfpga_core.dir/src/fabric/Fabric.cpp.o"
+  "CMakeFiles/vfpga_core.dir/src/fabric/Fabric.cpp.o.d"
   "libvfpga_core.a"
   "libvfpga_core.pdb"
 )

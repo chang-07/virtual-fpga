@@ -13,8 +13,13 @@ public:
   // Check if window should close
   bool should_close();
 
-  // Main draw loop
-  void draw(const Fabric &fabric);
+#include <functional>
+
+  // ...
+
+  // Main draw loop with UI callbacks
+  void draw(const Fabric &fabric, std::function<void()> on_step = nullptr,
+            std::function<void()> on_reset = nullptr);
 
 private:
   int window_width;

@@ -27,6 +27,7 @@ endif()
 set(CORE_SOURCES
     src/core/LogicVal.cpp
     src/core/Signal.cpp
+    src/fabric/Fabric.cpp
     src/fabric/BitstreamLoader.cpp
     src/cad/Parser.cpp
     src/cad/Packer.cpp

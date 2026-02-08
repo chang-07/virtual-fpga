@@ -518,6 +518,30 @@ src/fabric/BitstreamLoader.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/vfpga_core.dir/build.make CMakeFiles/vfpga_core.dir/src/fabric/BitstreamLoader.cpp.s
 .PHONY : src/fabric/BitstreamLoader.cpp.s
 
+src/fabric/Fabric.o: src/fabric/Fabric.cpp.o
+.PHONY : src/fabric/Fabric.o
+
+# target to build an object file
+src/fabric/Fabric.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vfpga_core.dir/build.make CMakeFiles/vfpga_core.dir/src/fabric/Fabric.cpp.o
+.PHONY : src/fabric/Fabric.cpp.o
+
+src/fabric/Fabric.i: src/fabric/Fabric.cpp.i
+.PHONY : src/fabric/Fabric.i
+
+# target to preprocess a source file
+src/fabric/Fabric.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vfpga_core.dir/build.make CMakeFiles/vfpga_core.dir/src/fabric/Fabric.cpp.i
+.PHONY : src/fabric/Fabric.cpp.i
+
+src/fabric/Fabric.s: src/fabric/Fabric.cpp.s
+.PHONY : src/fabric/Fabric.s
+
+# target to generate assembly for a file
+src/fabric/Fabric.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vfpga_core.dir/build.make CMakeFiles/vfpga_core.dir/src/fabric/Fabric.cpp.s
+.PHONY : src/fabric/Fabric.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -785,6 +809,9 @@ help:
 	@echo "... src/fabric/BitstreamLoader.o"
 	@echo "... src/fabric/BitstreamLoader.i"
 	@echo "... src/fabric/BitstreamLoader.s"
+	@echo "... src/fabric/Fabric.o"
+	@echo "... src/fabric/Fabric.i"
+	@echo "... src/fabric/Fabric.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

@@ -12,30 +12,21 @@ public:
   int height;
   std::vector<Tile> grid;
 
-  Fabric(int w, int h) : width(w), height(h) {
-    grid.reserve(w * h);
-    for (int y = 0; y < h; ++y) {
-      for (int x = 0; x < w; ++x) {
-        grid.emplace_back(x, y);
-      }
-    }
-  }
+  Fabric(int w, int h);
 
-  Tile &get_tile(int x, int y) {
-    if (x < 0 || x >= width || y < 0 || y >= height) {
-      throw std::out_of_range("Tile coordinates out of bounds");
-    }
-    return grid[y * width + x];
-  }
-
-  const Tile &get_tile(int x, int y) const {
-    if (x < 0 || x >= width || y < 0 || y >= height) {
-      throw std::out_of_range("Tile coordinates out of bounds");
-    }
-    return grid[y * width + x];
-  }
+  // Accessors
+  Tile &get_tile(int x, int y);
+  const Tile &get_tile(int x, int y) const;
 
   size_t size() const { return grid.size(); }
+
+  // Simulation Control
+  void step();  // Advance clock
+  void reset(); // Reset all DFFs
+
+  // IO Interaction
+  void set_input(int x, int y, LogicVal value);
+  LogicVal get_output(int x, int y) const;
 };
 
 } // namespace vfpga

@@ -31,6 +31,7 @@ public:
   void update() { state = next_state; }
 
   LogicVal get_output() const { return state; }
+  void set_state(LogicVal s) { state = s; }
 
 private:
   LogicVal state;

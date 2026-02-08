@@ -22,6 +22,8 @@ struct Tile {
   // e.g., input_mux[0] selects which track drives LUT input 0.
   std::vector<int> input_mux_selects;
 
+  Tile() : x(0), y(0) { input_mux_selects.resize(4, 0); }
+
   Tile(int x_pos, int y_pos) : x(x_pos), y(y_pos) {
     input_mux_selects.resize(4, 0); // 4 inputs for LUT
   }
