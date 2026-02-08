@@ -3,7 +3,7 @@ CMakeFiles/virtual_fpga.dir/src/ui/Renderer.cpp.o: \
   /Users/chang/coding/virtual-fpga/src/ui/Renderer.hpp \
   /Users/chang/coding/virtual-fpga/src/ui/../fabric/Fabric.hpp \
   /Users/chang/coding/virtual-fpga/src/ui/../fabric/Tile.hpp \
-  /Users/chang/coding/virtual-fpga/src/ui/../fabric/../primitives/DFF.hpp \
+  /Users/chang/coding/virtual-fpga/src/ui/../fabric/../primitives/BRAM.hpp \
   /Users/chang/coding/virtual-fpga/src/ui/../fabric/../primitives/../core/LogicVal.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__assert \
@@ -960,6 +960,8 @@ CMakeFiles/virtual_fpga.dir/src/ui/Renderer.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__format/formatter_tuple.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/print \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/unistd.h \
+  /Users/chang/coding/virtual-fpga/src/ui/../fabric/../primitives/DFF.hpp \
+  /Users/chang/coding/virtual-fpga/src/ui/../fabric/../primitives/DSP.hpp \
   /Users/chang/coding/virtual-fpga/src/ui/../fabric/../primitives/LUT.hpp \
   /Users/chang/coding/virtual-fpga/src/ui/raygui.h \
   /Users/chang/coding/virtual-fpga/build/_deps/raylib-src/src/raylib.h

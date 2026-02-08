@@ -960,8 +960,10 @@ CMakeFiles/vfpga_test.dir/tests/main_test.cpp.o: \
   /Users/chang/coding/virtual-fpga/tests/../src/fabric/BitstreamLoader.hpp \
   /Users/chang/coding/virtual-fpga/tests/../src/fabric/Fabric.hpp \
   /Users/chang/coding/virtual-fpga/tests/../src/fabric/Tile.hpp \
-  /Users/chang/coding/virtual-fpga/tests/../src/fabric/../primitives/DFF.hpp \
+  /Users/chang/coding/virtual-fpga/tests/../src/fabric/../primitives/BRAM.hpp \
   /Users/chang/coding/virtual-fpga/tests/../src/fabric/../primitives/../core/LogicVal.hpp \
+  /Users/chang/coding/virtual-fpga/tests/../src/fabric/../primitives/DFF.hpp \
+  /Users/chang/coding/virtual-fpga/tests/../src/fabric/../primitives/DSP.hpp \
   /Users/chang/coding/virtual-fpga/tests/../src/fabric/../primitives/LUT.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/fstream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/filesystem \

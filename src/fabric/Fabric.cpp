@@ -8,6 +8,19 @@ Fabric::Fabric(int w, int h) : width(w), height(h) {
   for (int y = 0; y < height; ++y) {
     for (int x = 0; x < width; ++x) {
       grid[y * width + x] = Tile(x, y);
+      Tile &tile = grid[y * width + x];
+
+      // Columnar Layout:
+      // Col 3: BRAM
+      // Col 7: DSP
+      // Rest: CLB (default)
+      if (x == 3) {
+        tile.type = TileType::BRAM;
+      } else if (x == 7) {
+        tile.type = TileType::DSP;
+      } else {
+        tile.type = TileType::CLB;
+      }
     }
   }
 }

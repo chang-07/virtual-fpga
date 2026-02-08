@@ -963,8 +963,10 @@ CMakeFiles/router_test.dir/tests/router_test.cpp.o: \
   /Users/chang/coding/virtual-fpga/tests/../src/cad/Router.hpp \
   /Users/chang/coding/virtual-fpga/tests/../src/cad/../fabric/Fabric.hpp \
   /Users/chang/coding/virtual-fpga/tests/../src/cad/../fabric/Tile.hpp \
-  /Users/chang/coding/virtual-fpga/tests/../src/cad/../fabric/../primitives/DFF.hpp \
+  /Users/chang/coding/virtual-fpga/tests/../src/cad/../fabric/../primitives/BRAM.hpp \
   /Users/chang/coding/virtual-fpga/tests/../src/cad/../fabric/../primitives/../core/LogicVal.hpp \
+  /Users/chang/coding/virtual-fpga/tests/../src/cad/../fabric/../primitives/DFF.hpp \
+  /Users/chang/coding/virtual-fpga/tests/../src/cad/../fabric/../primitives/DSP.hpp \
   /Users/chang/coding/virtual-fpga/tests/../src/cad/../fabric/../primitives/LUT.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/set \
   /Users/chang/coding/virtual-fpga/tests/../src/fabric/Fabric.hpp \

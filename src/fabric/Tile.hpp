@@ -1,25 +1,32 @@
 #pragma once
 
+#include "../primitives/BRAM.hpp"
 #include "../primitives/DFF.hpp"
+#include "../primitives/DSP.hpp"
 #include "../primitives/LUT.hpp"
 #include <memory>
 #include <vector>
 
 namespace vfpga {
 
+enum class TileType { CLB, BRAM, DSP, IO };
+
 struct Tile {
   int x, y;
+  TileType type = TileType::CLB;
 
-  // Resources in this tile
-  // For simplicity, let's assume 1 LUT + 1 DFF per tile (Basic Logic Element)
-  // In a real FPGA, this would be a Cluster (CLB) containing N LEs.
+  // Resources (Union-like usage, though simpler to just keep all members for
+  // now) CLB
   LUT<4> lut; // 4-input LUT
   DFF dff;
 
+  // Hard Blocks (Optional)
+  // We can assume if type == BRAM, we use 'bram' member.
+  BRAM bram;
+  DSP dsp;
+
   // Switch Matrix (simplified)
   // We need a way to store routing configuration.
-  // For now, let's just store simple mux configurations as integers.
-  // e.g., input_mux[0] selects which track drives LUT input 0.
   std::vector<int> input_mux_selects;
 
   Tile() : x(0), y(0) { input_mux_selects.resize(4, 0); }

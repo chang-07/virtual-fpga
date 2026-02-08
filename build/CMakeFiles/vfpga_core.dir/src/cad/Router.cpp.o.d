@@ -3,7 +3,7 @@ CMakeFiles/vfpga_core.dir/src/cad/Router.cpp.o: \
   /Users/chang/coding/virtual-fpga/src/cad/Router.hpp \
   /Users/chang/coding/virtual-fpga/src/cad/../fabric/Fabric.hpp \
   /Users/chang/coding/virtual-fpga/src/cad/../fabric/Tile.hpp \
-  /Users/chang/coding/virtual-fpga/src/cad/../fabric/../primitives/DFF.hpp \
+  /Users/chang/coding/virtual-fpga/src/cad/../fabric/../primitives/BRAM.hpp \
   /Users/chang/coding/virtual-fpga/src/cad/../fabric/../primitives/../core/LogicVal.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__assert \
@@ -960,6 +960,8 @@ CMakeFiles/vfpga_core.dir/src/cad/Router.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__format/formatter_tuple.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/print \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/unistd.h \
+  /Users/chang/coding/virtual-fpga/src/cad/../fabric/../primitives/DFF.hpp \
+  /Users/chang/coding/virtual-fpga/src/cad/../fabric/../primitives/DSP.hpp \
   /Users/chang/coding/virtual-fpga/src/cad/../fabric/../primitives/LUT.hpp \
   /Users/chang/coding/virtual-fpga/src/cad/LogicBlock.hpp \
   /Users/chang/coding/virtual-fpga/src/cad/../primitives/LUT.hpp \

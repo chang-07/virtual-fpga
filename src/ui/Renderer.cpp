@@ -119,11 +119,23 @@ void Renderer::draw_grid(Fabric &fabric) {
       DrawRectangleRec(rect, color);
       DrawRectangleLinesEx(rect, 1, DARKGRAY);
 
-      // Draw LUT/DFF content (simplified)
-      DrawRectangle(px + 4, py + 4, tile_size / 2 - 6, tile_size - 8,
-                    BLUE); // LUT
-      DrawRectangle(px + tile_size / 2, py + 4, tile_size / 2 - 4,
-                    tile_size - 8, RED); // DFF
+      // Draw Content based on Type
+      Tile &tile = fabric.get_tile(x, y);
+      if (tile.type == TileType::CLB) {
+        // Draw LUT/DFF content (simplified)
+        DrawRectangle(px + 4, py + 4, tile_size / 2 - 6, tile_size - 8,
+                      BLUE); // LUT
+        DrawRectangle(px + tile_size / 2, py + 4, tile_size / 2 - 4,
+                      tile_size - 8, RED); // DFF
+      } else if (tile.type == TileType::BRAM) {
+        // Orange for BRAM
+        DrawRectangle(px + 4, py + 4, tile_size - 8, tile_size - 8, ORANGE);
+        DrawText("BRAM", px + 5, py + tile_size / 2 - 5, 10, BLACK);
+      } else if (tile.type == TileType::DSP) {
+        // Purple for DSP
+        DrawRectangle(px + 4, py + 4, tile_size - 8, tile_size - 8, PURPLE);
+        DrawText("DSP", px + 8, py + tile_size / 2 - 5, 10, WHITE);
+      }
     }
   }
 }

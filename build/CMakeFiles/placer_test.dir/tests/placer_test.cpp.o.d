@@ -963,8 +963,10 @@ CMakeFiles/placer_test.dir/tests/placer_test.cpp.o: \
   /Users/chang/coding/virtual-fpga/tests/../src/cad/Placer.hpp \
   /Users/chang/coding/virtual-fpga/tests/../src/cad/../fabric/Fabric.hpp \
   /Users/chang/coding/virtual-fpga/tests/../src/cad/../fabric/Tile.hpp \
-  /Users/chang/coding/virtual-fpga/tests/../src/cad/../fabric/../primitives/DFF.hpp \
+  /Users/chang/coding/virtual-fpga/tests/../src/cad/../fabric/../primitives/BRAM.hpp \
   /Users/chang/coding/virtual-fpga/tests/../src/cad/../fabric/../primitives/../core/LogicVal.hpp \
+  /Users/chang/coding/virtual-fpga/tests/../src/cad/../fabric/../primitives/DFF.hpp \
+  /Users/chang/coding/virtual-fpga/tests/../src/cad/../fabric/../primitives/DSP.hpp \
   /Users/chang/coding/virtual-fpga/tests/../src/cad/../fabric/../primitives/LUT.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/random \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/bernoulli_distribution.h \
