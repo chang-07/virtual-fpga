@@ -29,6 +29,7 @@ set(CORE_SOURCES
     src/core/Signal.cpp
     src/fabric/Fabric.cpp
     src/fabric/BitstreamLoader.cpp
+    src/analysis/TimingAnalyzer.cpp
     src/cad/Parser.cpp
     src/cad/Packer.cpp
     src/cad/Placer.cpp

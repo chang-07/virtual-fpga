@@ -984,7 +984,9 @@ CMakeFiles/vfpga_test.dir/tests/main_test.cpp.o: /Users/chang/coding/virtual-fpg
   /Users/chang/coding/virtual-fpga/src/core/LogicVal.hpp \
   /Users/chang/coding/virtual-fpga/src/core/Signal.hpp \
   /Users/chang/coding/virtual-fpga/src/core/LogicVal.hpp \
+  /Users/chang/coding/virtual-fpga/src/primitives/BRAM.hpp \
   /Users/chang/coding/virtual-fpga/src/primitives/DFF.hpp \
+  /Users/chang/coding/virtual-fpga/src/primitives/DSP.hpp \
   /Users/chang/coding/virtual-fpga/src/primitives/LUT.hpp \
   /Users/chang/coding/virtual-fpga/src/fabric/BitstreamLoader.hpp \
   /Users/chang/coding/virtual-fpga/src/fabric/Fabric.hpp \
@@ -1000,6 +1002,8 @@ CMakeFiles/vfpga_test.dir/tests/main_test.cpp.o: /Users/chang/coding/virtual-fpg
 /Users/chang/coding/virtual-fpga/src/primitives/LUT.hpp:
 
 /Users/chang/coding/virtual-fpga/src/primitives/DFF.hpp:
+
+/Users/chang/coding/virtual-fpga/src/primitives/BRAM.hpp:
 
 /Users/chang/coding/virtual-fpga/src/core/Signal.hpp:
 
@@ -1980,6 +1984,8 @@ CMakeFiles/vfpga_test.dir/tests/main_test.cpp.o: /Users/chang/coding/virtual-fpg
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_uint16_t.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/shuffle.h:
+
+/Users/chang/coding/virtual-fpga/src/primitives/DSP.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__concepts/different_from.h:
 

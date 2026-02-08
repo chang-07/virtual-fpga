@@ -31,16 +31,33 @@ public:
   // Route the design. Returns true if successful.
   // implementation details: Modifies the fabric to store routing info (e.g.
   // switch settings)
-  static bool route(Fabric &fabric, const std::vector<LogicBlock> &blocks,
-                    const std::map<int, std::pair<int, int>> &placement);
+  // Route the design. Returns true if successful.
+  // implementation details: Modifies the fabric to store routing info (e.g.
+  // switch settings)
+  bool route(Fabric &fabric, const std::vector<LogicBlock> &blocks,
+             const std::map<int, std::pair<int, int>> &placement);
+
+  // Store nets for analysis
+  struct Net {
+    struct Point {
+      int x, y;
+    };
+    Point source;
+    std::vector<Point> sinks;
+  };
+  std::vector<Net> nets; // Instance member, but route is static...
+  // We should probably make Router a class instance, or just return nets from
+  // route? Or make nets static? Static is messy. The TimingAnalyzer takes
+  // 'const Router&'. So Router was intended to be an instance. But
+  // Router::route is static.
 
 private:
   // Build the routing graph based on Fabric resources
-  static void build_graph(Fabric &fabric, std::vector<RoutingNode> &graph);
+  void build_graph(Fabric &fabric, std::vector<RoutingNode> &graph);
 
   // Find path for a single net using A*
-  static std::vector<int> route_net(const std::vector<RoutingNode> &graph,
-                                    int start_node, int end_node);
+  std::vector<int> route_net(const std::vector<RoutingNode> &graph,
+                             int start_node, int end_node);
 };
 
 } // namespace vfpga

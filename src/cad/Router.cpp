@@ -9,13 +9,6 @@
 
 namespace vfpga {
 
-// Simplified Graph:
-// Each Tile has:
-// - Input Pins (as nodes)
-// - Output Pin (as node)
-// - We assume "Virtual Wires" connect adjacent tiles.
-// This is a placeholder because building a full routing graph is complex.
-
 void Router::build_graph(Fabric &fabric, std::vector<RoutingNode> &graph) {
   // Grid of nodes. One node per tile "Crossbar".
   graph.resize(fabric.width * fabric.height);
@@ -59,23 +52,18 @@ bool Router::route(Fabric &fabric, const std::vector<LogicBlock> &blocks,
     block_to_node[bid] = pos.second * fabric.width + pos.first;
   }
 
-  // Identify Nets
+  // Identify Nets (Internal struct for routing logic)
   struct NetInfo {
     std::string name;
     int source_node = -1;
     std::vector<int> sink_nodes;
     std::vector<int> current_path; // List of nodes used
   };
-  std::vector<NetInfo> nets;
+  std::vector<NetInfo> internal_nets;
 
   // Helper to find existing net or create
-  auto get_net = [&](const std::string &name) -> NetInfo & {
-    for (auto &n : nets)
-      if (n.name == name)
-        return n;
-    nets.push_back({name});
-    return nets.back();
-  };
+  // We can't use a lambda with auto return type easily if we want to modify the
+  // vector passing references. Let's just do it inline or use index.
 
   for (const auto &block : blocks) {
     if (block_to_node.find(block.id) == block_to_node.end())
@@ -83,13 +71,31 @@ bool Router::route(Fabric &fabric, const std::vector<LogicBlock> &blocks,
     int node_id = block_to_node[block.id];
 
     if (!block.output_net.empty()) {
-      get_net(block.output_net).name = block.output_net;
-      get_net(block.output_net).source_node = node_id;
+      bool found = false;
+      for (auto &n : internal_nets) {
+        if (n.name == block.output_net) {
+          n.source_node = node_id;
+          found = true;
+          break;
+        }
+      }
+      if (!found) {
+        internal_nets.push_back({block.output_net, node_id, {}, {}});
+      }
     }
     for (const auto &input_net : block.input_nets) {
       if (!input_net.empty()) {
-        get_net(input_net).name = input_net;
-        get_net(input_net).sink_nodes.push_back(node_id);
+        bool found = false;
+        for (auto &n : internal_nets) {
+          if (n.name == input_net) {
+            n.sink_nodes.push_back(node_id);
+            found = true;
+            break;
+          }
+        }
+        if (!found) {
+          internal_nets.push_back({input_net, -1, {node_id}, {}});
+        }
       }
     }
   }
@@ -100,14 +106,13 @@ bool Router::route(Fabric &fabric, const std::vector<LogicBlock> &blocks,
     bool congestion_free = true;
 
     // 1. Rip-up & Route all nets
-    for (auto &net : nets) {
+    for (auto &net : internal_nets) {
       if (net.source_node == -1)
         continue; // Input from IO? (ignore for now)
       if (net.sink_nodes.empty())
         continue;
 
       // Rip-up: Decrease occupancy of current path
-      // Sort and unique to avoid double decrement if we store duplicates
       std::sort(net.current_path.begin(), net.current_path.end());
       net.current_path.erase(
           std::unique(net.current_path.begin(), net.current_path.end()),
@@ -153,15 +158,8 @@ bool Router::route(Fabric &fabric, const std::vector<LogicBlock> &blocks,
 
             double occ = static_cast<double>(graph[v].occupancy);
             double cap = static_cast<double>(graph[v].capacity);
-
-            // Note: occupancy is what it WOULD be if we use it.
-            // Since we ripped up, occ currently reflects OTHER nets.
-            // So if we use it, new_occ = occ + 1.
-            // Congestion = max(0, new_occ - cap)
-
             double congestion = std::max(0.0, occ + 1.0 - cap);
             double p_n = 1.0 + congestion * pres_fac;
-
             double cost_v =
                 (graph[v].base_cost + graph[v].hist_congestion_cost) * p_n;
 
@@ -181,7 +179,8 @@ bool Router::route(Fabric &fabric, const std::vector<LogicBlock> &blocks,
             curr = parent[curr];
           }
         } else {
-          std::cerr << "Failed to route part of net: " << net.name << std::endl;
+          // std::cerr << "Failed to route part of net: " << net.name <<
+          // std::endl;
         }
       }
 
@@ -210,6 +209,20 @@ bool Router::route(Fabric &fabric, const std::vector<LogicBlock> &blocks,
 
     if (congestion_free) {
       std::cout << "Routing successful at iteration " << iter << std::endl;
+
+      // Populate public nets structure for Analysis
+      this->nets.clear();
+      for (const auto &inet : internal_nets) {
+        if (inet.source_node == -1)
+          continue;
+        Net net;
+        // Map node ID back to x,y
+        net.source = {graph[inet.source_node].x, graph[inet.source_node].y};
+        for (int sink_id : inet.sink_nodes) {
+          net.sinks.push_back({graph[sink_id].x, graph[sink_id].y});
+        }
+        this->nets.push_back(net);
+      }
       return true;
     }
 
@@ -220,6 +233,12 @@ bool Router::route(Fabric &fabric, const std::vector<LogicBlock> &blocks,
   std::cerr << "Routing failed to resolve congestion after " << MAX_ITERATIONS
             << " iterations." << std::endl;
   return false;
+}
+
+std::vector<int> Router::route_net(const std::vector<RoutingNode> &graph,
+                                   int start_node, int end_node) {
+  // Unused helper now that logic is inline
+  return {};
 }
 
 } // namespace vfpga

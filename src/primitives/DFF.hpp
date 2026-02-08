@@ -6,6 +6,9 @@ namespace vfpga {
 
 class DFF {
 public:
+  static constexpr int DELAY_SETUP_PS = 50;  // 50ps setup
+  static constexpr int DELAY_CLK_Q_PS = 100; // 100ps clk-to-q
+
   DFF() : state(LogicState::LX), next_state(LogicState::LX) {}
 
   // Prepare next state (combinational phase)

@@ -10,6 +10,8 @@ namespace vfpga {
 
 template <size_t K> class LUT {
 public:
+  static constexpr int DELAY_PS = 300; // 300ps
+
   LUT() {
     // Initialize with 0s
     config_mask.resize(1 << K, LogicState::L0);

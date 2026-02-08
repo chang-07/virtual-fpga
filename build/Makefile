@@ -350,6 +350,30 @@ update_mappings/fast:
 	$(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/update_mappings.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/update_mappings.dir/build
 .PHONY : update_mappings/fast
 
+src/analysis/TimingAnalyzer.o: src/analysis/TimingAnalyzer.cpp.o
+.PHONY : src/analysis/TimingAnalyzer.o
+
+# target to build an object file
+src/analysis/TimingAnalyzer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vfpga_core.dir/build.make CMakeFiles/vfpga_core.dir/src/analysis/TimingAnalyzer.cpp.o
+.PHONY : src/analysis/TimingAnalyzer.cpp.o
+
+src/analysis/TimingAnalyzer.i: src/analysis/TimingAnalyzer.cpp.i
+.PHONY : src/analysis/TimingAnalyzer.i
+
+# target to preprocess a source file
+src/analysis/TimingAnalyzer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vfpga_core.dir/build.make CMakeFiles/vfpga_core.dir/src/analysis/TimingAnalyzer.cpp.i
+.PHONY : src/analysis/TimingAnalyzer.cpp.i
+
+src/analysis/TimingAnalyzer.s: src/analysis/TimingAnalyzer.cpp.s
+.PHONY : src/analysis/TimingAnalyzer.s
+
+# target to generate assembly for a file
+src/analysis/TimingAnalyzer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vfpga_core.dir/build.make CMakeFiles/vfpga_core.dir/src/analysis/TimingAnalyzer.cpp.s
+.PHONY : src/analysis/TimingAnalyzer.cpp.s
+
 src/cad/Packer.o: src/cad/Packer.cpp.o
 .PHONY : src/cad/Packer.o
 
@@ -788,6 +812,9 @@ help:
 	@echo "... vfpga_core"
 	@echo "... vfpga_test"
 	@echo "... virtual_fpga"
+	@echo "... src/analysis/TimingAnalyzer.o"
+	@echo "... src/analysis/TimingAnalyzer.i"
+	@echo "... src/analysis/TimingAnalyzer.s"
 	@echo "... src/cad/Packer.o"
 	@echo "... src/cad/Packer.i"
 	@echo "... src/cad/Packer.s"

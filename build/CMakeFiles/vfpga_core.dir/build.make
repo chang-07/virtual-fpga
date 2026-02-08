@@ -128,10 +128,24 @@ CMakeFiles/vfpga_core.dir/src/fabric/BitstreamLoader.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/vfpga_core.dir/src/fabric/BitstreamLoader.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/chang/coding/virtual-fpga/src/fabric/BitstreamLoader.cpp -o CMakeFiles/vfpga_core.dir/src/fabric/BitstreamLoader.cpp.s
 
+CMakeFiles/vfpga_core.dir/src/analysis/TimingAnalyzer.cpp.o: CMakeFiles/vfpga_core.dir/flags.make
+CMakeFiles/vfpga_core.dir/src/analysis/TimingAnalyzer.cpp.o: /Users/chang/coding/virtual-fpga/src/analysis/TimingAnalyzer.cpp
+CMakeFiles/vfpga_core.dir/src/analysis/TimingAnalyzer.cpp.o: CMakeFiles/vfpga_core.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/chang/coding/virtual-fpga/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/vfpga_core.dir/src/analysis/TimingAnalyzer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/vfpga_core.dir/src/analysis/TimingAnalyzer.cpp.o -MF CMakeFiles/vfpga_core.dir/src/analysis/TimingAnalyzer.cpp.o.d -o CMakeFiles/vfpga_core.dir/src/analysis/TimingAnalyzer.cpp.o -c /Users/chang/coding/virtual-fpga/src/analysis/TimingAnalyzer.cpp
+
+CMakeFiles/vfpga_core.dir/src/analysis/TimingAnalyzer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/vfpga_core.dir/src/analysis/TimingAnalyzer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/chang/coding/virtual-fpga/src/analysis/TimingAnalyzer.cpp > CMakeFiles/vfpga_core.dir/src/analysis/TimingAnalyzer.cpp.i
+
+CMakeFiles/vfpga_core.dir/src/analysis/TimingAnalyzer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/vfpga_core.dir/src/analysis/TimingAnalyzer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/chang/coding/virtual-fpga/src/analysis/TimingAnalyzer.cpp -o CMakeFiles/vfpga_core.dir/src/analysis/TimingAnalyzer.cpp.s
+
 CMakeFiles/vfpga_core.dir/src/cad/Parser.cpp.o: CMakeFiles/vfpga_core.dir/flags.make
 CMakeFiles/vfpga_core.dir/src/cad/Parser.cpp.o: /Users/chang/coding/virtual-fpga/src/cad/Parser.cpp
 CMakeFiles/vfpga_core.dir/src/cad/Parser.cpp.o: CMakeFiles/vfpga_core.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/chang/coding/virtual-fpga/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/vfpga_core.dir/src/cad/Parser.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/chang/coding/virtual-fpga/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/vfpga_core.dir/src/cad/Parser.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/vfpga_core.dir/src/cad/Parser.cpp.o -MF CMakeFiles/vfpga_core.dir/src/cad/Parser.cpp.o.d -o CMakeFiles/vfpga_core.dir/src/cad/Parser.cpp.o -c /Users/chang/coding/virtual-fpga/src/cad/Parser.cpp
 
 CMakeFiles/vfpga_core.dir/src/cad/Parser.cpp.i: cmake_force
@@ -145,7 +159,7 @@ CMakeFiles/vfpga_core.dir/src/cad/Parser.cpp.s: cmake_force
 CMakeFiles/vfpga_core.dir/src/cad/Packer.cpp.o: CMakeFiles/vfpga_core.dir/flags.make
 CMakeFiles/vfpga_core.dir/src/cad/Packer.cpp.o: /Users/chang/coding/virtual-fpga/src/cad/Packer.cpp
 CMakeFiles/vfpga_core.dir/src/cad/Packer.cpp.o: CMakeFiles/vfpga_core.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/chang/coding/virtual-fpga/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/vfpga_core.dir/src/cad/Packer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/chang/coding/virtual-fpga/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/vfpga_core.dir/src/cad/Packer.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/vfpga_core.dir/src/cad/Packer.cpp.o -MF CMakeFiles/vfpga_core.dir/src/cad/Packer.cpp.o.d -o CMakeFiles/vfpga_core.dir/src/cad/Packer.cpp.o -c /Users/chang/coding/virtual-fpga/src/cad/Packer.cpp
 
 CMakeFiles/vfpga_core.dir/src/cad/Packer.cpp.i: cmake_force
@@ -159,7 +173,7 @@ CMakeFiles/vfpga_core.dir/src/cad/Packer.cpp.s: cmake_force
 CMakeFiles/vfpga_core.dir/src/cad/Placer.cpp.o: CMakeFiles/vfpga_core.dir/flags.make
 CMakeFiles/vfpga_core.dir/src/cad/Placer.cpp.o: /Users/chang/coding/virtual-fpga/src/cad/Placer.cpp
 CMakeFiles/vfpga_core.dir/src/cad/Placer.cpp.o: CMakeFiles/vfpga_core.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/chang/coding/virtual-fpga/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/vfpga_core.dir/src/cad/Placer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/chang/coding/virtual-fpga/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/vfpga_core.dir/src/cad/Placer.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/vfpga_core.dir/src/cad/Placer.cpp.o -MF CMakeFiles/vfpga_core.dir/src/cad/Placer.cpp.o.d -o CMakeFiles/vfpga_core.dir/src/cad/Placer.cpp.o -c /Users/chang/coding/virtual-fpga/src/cad/Placer.cpp
 
 CMakeFiles/vfpga_core.dir/src/cad/Placer.cpp.i: cmake_force
@@ -173,7 +187,7 @@ CMakeFiles/vfpga_core.dir/src/cad/Placer.cpp.s: cmake_force
 CMakeFiles/vfpga_core.dir/src/cad/Router.cpp.o: CMakeFiles/vfpga_core.dir/flags.make
 CMakeFiles/vfpga_core.dir/src/cad/Router.cpp.o: /Users/chang/coding/virtual-fpga/src/cad/Router.cpp
 CMakeFiles/vfpga_core.dir/src/cad/Router.cpp.o: CMakeFiles/vfpga_core.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/chang/coding/virtual-fpga/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/vfpga_core.dir/src/cad/Router.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/chang/coding/virtual-fpga/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/vfpga_core.dir/src/cad/Router.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/vfpga_core.dir/src/cad/Router.cpp.o -MF CMakeFiles/vfpga_core.dir/src/cad/Router.cpp.o.d -o CMakeFiles/vfpga_core.dir/src/cad/Router.cpp.o -c /Users/chang/coding/virtual-fpga/src/cad/Router.cpp
 
 CMakeFiles/vfpga_core.dir/src/cad/Router.cpp.i: cmake_force
@@ -190,6 +204,7 @@ vfpga_core_OBJECTS = \
 "CMakeFiles/vfpga_core.dir/src/core/Signal.cpp.o" \
 "CMakeFiles/vfpga_core.dir/src/fabric/Fabric.cpp.o" \
 "CMakeFiles/vfpga_core.dir/src/fabric/BitstreamLoader.cpp.o" \
+"CMakeFiles/vfpga_core.dir/src/analysis/TimingAnalyzer.cpp.o" \
 "CMakeFiles/vfpga_core.dir/src/cad/Parser.cpp.o" \
 "CMakeFiles/vfpga_core.dir/src/cad/Packer.cpp.o" \
 "CMakeFiles/vfpga_core.dir/src/cad/Placer.cpp.o" \
@@ -202,13 +217,14 @@ libvfpga_core.a: CMakeFiles/vfpga_core.dir/src/core/LogicVal.cpp.o
 libvfpga_core.a: CMakeFiles/vfpga_core.dir/src/core/Signal.cpp.o
 libvfpga_core.a: CMakeFiles/vfpga_core.dir/src/fabric/Fabric.cpp.o
 libvfpga_core.a: CMakeFiles/vfpga_core.dir/src/fabric/BitstreamLoader.cpp.o
+libvfpga_core.a: CMakeFiles/vfpga_core.dir/src/analysis/TimingAnalyzer.cpp.o
 libvfpga_core.a: CMakeFiles/vfpga_core.dir/src/cad/Parser.cpp.o
 libvfpga_core.a: CMakeFiles/vfpga_core.dir/src/cad/Packer.cpp.o
 libvfpga_core.a: CMakeFiles/vfpga_core.dir/src/cad/Placer.cpp.o
 libvfpga_core.a: CMakeFiles/vfpga_core.dir/src/cad/Router.cpp.o
 libvfpga_core.a: CMakeFiles/vfpga_core.dir/build.make
 libvfpga_core.a: CMakeFiles/vfpga_core.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/chang/coding/virtual-fpga/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX static library libvfpga_core.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/chang/coding/virtual-fpga/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX static library libvfpga_core.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/vfpga_core.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/vfpga_core.dir/link.txt --verbose=$(VERBOSE)
 

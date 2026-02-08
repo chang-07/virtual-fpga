@@ -29,7 +29,8 @@ void test_router_basic() {
   placement[0] = {0, 0};
   placement[1] = {2, 2};
 
-  bool success = Router::route(fabric, blocks, placement);
+  Router router;
+  bool success = router.route(fabric, blocks, placement);
   assert(success);
 
   std::cout << "Router Basic Tests Passed!" << std::endl;

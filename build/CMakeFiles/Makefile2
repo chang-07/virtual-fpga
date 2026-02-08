@@ -193,12 +193,12 @@ _deps/raylib-build/raylib/external/glfw/src/clean: _deps/raylib-build/raylib/ext
 CMakeFiles/vfpga_core.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/vfpga_core.dir/build.make CMakeFiles/vfpga_core.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/vfpga_core.dir/build.make CMakeFiles/vfpga_core.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/chang/coding/virtual-fpga/build/CMakeFiles --progress-num=45,46,47,48,49,50,51,52,53 "Built target vfpga_core"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/chang/coding/virtual-fpga/build/CMakeFiles --progress-num=45,46,47,48,49,50,51,52,53,54 "Built target vfpga_core"
 .PHONY : CMakeFiles/vfpga_core.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/vfpga_core.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/chang/coding/virtual-fpga/build/CMakeFiles 9
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/chang/coding/virtual-fpga/build/CMakeFiles 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/vfpga_core.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/chang/coding/virtual-fpga/build/CMakeFiles 0
 .PHONY : CMakeFiles/vfpga_core.dir/rule
@@ -210,7 +210,7 @@ vfpga_core: CMakeFiles/vfpga_core.dir/rule
 # codegen rule for target.
 CMakeFiles/vfpga_core.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/vfpga_core.dir/build.make CMakeFiles/vfpga_core.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/chang/coding/virtual-fpga/build/CMakeFiles --progress-num=45,46,47,48,49,50,51,52,53 "Finished codegen for target vfpga_core"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/chang/coding/virtual-fpga/build/CMakeFiles --progress-num=45,46,47,48,49,50,51,52,53,54 "Finished codegen for target vfpga_core"
 .PHONY : CMakeFiles/vfpga_core.dir/codegen
 
 # clean rule for target.
@@ -225,12 +225,12 @@ CMakeFiles/vfpga_core.dir/clean:
 CMakeFiles/vfpga_test.dir/all: CMakeFiles/vfpga_core.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/vfpga_test.dir/build.make CMakeFiles/vfpga_test.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/vfpga_test.dir/build.make CMakeFiles/vfpga_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/chang/coding/virtual-fpga/build/CMakeFiles --progress-num=54,55 "Built target vfpga_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/chang/coding/virtual-fpga/build/CMakeFiles --progress-num=55,56 "Built target vfpga_test"
 .PHONY : CMakeFiles/vfpga_test.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/vfpga_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/chang/coding/virtual-fpga/build/CMakeFiles 11
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/chang/coding/virtual-fpga/build/CMakeFiles 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/vfpga_test.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/chang/coding/virtual-fpga/build/CMakeFiles 0
 .PHONY : CMakeFiles/vfpga_test.dir/rule
@@ -242,7 +242,7 @@ vfpga_test: CMakeFiles/vfpga_test.dir/rule
 # codegen rule for target.
 CMakeFiles/vfpga_test.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/vfpga_test.dir/build.make CMakeFiles/vfpga_test.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/chang/coding/virtual-fpga/build/CMakeFiles --progress-num=54,55 "Finished codegen for target vfpga_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/chang/coding/virtual-fpga/build/CMakeFiles --progress-num=55,56 "Finished codegen for target vfpga_test"
 .PHONY : CMakeFiles/vfpga_test.dir/codegen
 
 # clean rule for target.
@@ -262,7 +262,7 @@ CMakeFiles/parser_test.dir/all: CMakeFiles/vfpga_core.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/parser_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/chang/coding/virtual-fpga/build/CMakeFiles 11
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/chang/coding/virtual-fpga/build/CMakeFiles 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/parser_test.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/chang/coding/virtual-fpga/build/CMakeFiles 0
 .PHONY : CMakeFiles/parser_test.dir/rule
@@ -294,7 +294,7 @@ CMakeFiles/packer_test.dir/all: CMakeFiles/vfpga_core.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/packer_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/chang/coding/virtual-fpga/build/CMakeFiles 11
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/chang/coding/virtual-fpga/build/CMakeFiles 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/packer_test.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/chang/coding/virtual-fpga/build/CMakeFiles 0
 .PHONY : CMakeFiles/packer_test.dir/rule
@@ -326,7 +326,7 @@ CMakeFiles/placer_test.dir/all: CMakeFiles/vfpga_core.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/placer_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/chang/coding/virtual-fpga/build/CMakeFiles 11
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/chang/coding/virtual-fpga/build/CMakeFiles 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/placer_test.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/chang/coding/virtual-fpga/build/CMakeFiles 0
 .PHONY : CMakeFiles/placer_test.dir/rule
@@ -358,7 +358,7 @@ CMakeFiles/router_test.dir/all: CMakeFiles/vfpga_core.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/router_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/chang/coding/virtual-fpga/build/CMakeFiles 11
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/chang/coding/virtual-fpga/build/CMakeFiles 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/router_test.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/chang/coding/virtual-fpga/build/CMakeFiles 0
 .PHONY : CMakeFiles/router_test.dir/rule
@@ -390,7 +390,7 @@ CMakeFiles/flow_test.dir/all: CMakeFiles/vfpga_core.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/flow_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/chang/coding/virtual-fpga/build/CMakeFiles 11
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/chang/coding/virtual-fpga/build/CMakeFiles 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/flow_test.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/chang/coding/virtual-fpga/build/CMakeFiles 0
 .PHONY : CMakeFiles/flow_test.dir/rule
@@ -419,12 +419,12 @@ CMakeFiles/virtual_fpga.dir/all: _deps/raylib-build/raylib/CMakeFiles/raylib.dir
 CMakeFiles/virtual_fpga.dir/all: _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/virtual_fpga.dir/build.make CMakeFiles/virtual_fpga.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/virtual_fpga.dir/build.make CMakeFiles/virtual_fpga.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/chang/coding/virtual-fpga/build/CMakeFiles --progress-num=56,57,58 "Built target virtual_fpga"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/chang/coding/virtual-fpga/build/CMakeFiles --progress-num=57,58,59 "Built target virtual_fpga"
 .PHONY : CMakeFiles/virtual_fpga.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/virtual_fpga.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/chang/coding/virtual-fpga/build/CMakeFiles 42
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/chang/coding/virtual-fpga/build/CMakeFiles 43
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/virtual_fpga.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/chang/coding/virtual-fpga/build/CMakeFiles 0
 .PHONY : CMakeFiles/virtual_fpga.dir/rule
@@ -436,7 +436,7 @@ virtual_fpga: CMakeFiles/virtual_fpga.dir/rule
 # codegen rule for target.
 CMakeFiles/virtual_fpga.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/virtual_fpga.dir/build.make CMakeFiles/virtual_fpga.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/chang/coding/virtual-fpga/build/CMakeFiles --progress-num=56,57,58 "Finished codegen for target virtual_fpga"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/chang/coding/virtual-fpga/build/CMakeFiles --progress-num=57,58,59 "Finished codegen for target virtual_fpga"
 .PHONY : CMakeFiles/virtual_fpga.dir/codegen
 
 # clean rule for target.
@@ -458,7 +458,7 @@ CMakeFiles/renderer_test.dir/all: _deps/raylib-build/raylib/external/glfw/src/CM
 
 # Build rule for subdir invocation for target.
 CMakeFiles/renderer_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/chang/coding/virtual-fpga/build/CMakeFiles 42
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/chang/coding/virtual-fpga/build/CMakeFiles 43
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/renderer_test.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/chang/coding/virtual-fpga/build/CMakeFiles 0
 .PHONY : CMakeFiles/renderer_test.dir/rule

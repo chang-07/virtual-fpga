@@ -37,7 +37,8 @@ void test_full_flow() {
             << std::endl;
 
   // 5. Route
-  bool route_success = Router::route(fabric, blocks, placement);
+  Router router;
+  bool route_success = router.route(fabric, blocks, placement);
   assert(route_success);
   std::cout << "[Step 4] Routing successful." << std::endl;
 

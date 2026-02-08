@@ -1012,7 +1012,9 @@ CMakeFiles/placer_test.dir/tests/placer_test.cpp.o: /Users/chang/coding/virtual-
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/xlocale/_wchar.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/xlocale/_wctype.h \
   /Users/chang/coding/virtual-fpga/src/core/LogicVal.hpp \
+  /Users/chang/coding/virtual-fpga/src/primitives/BRAM.hpp \
   /Users/chang/coding/virtual-fpga/src/primitives/DFF.hpp \
+  /Users/chang/coding/virtual-fpga/src/primitives/DSP.hpp \
   /Users/chang/coding/virtual-fpga/src/primitives/LUT.hpp \
   /Users/chang/coding/virtual-fpga/src/fabric/Fabric.hpp \
   /Users/chang/coding/virtual-fpga/src/fabric/Tile.hpp \
@@ -1030,6 +1032,8 @@ CMakeFiles/placer_test.dir/tests/placer_test.cpp.o: /Users/chang/coding/virtual-
 /Users/chang/coding/virtual-fpga/src/primitives/LUT.hpp:
 
 /Users/chang/coding/virtual-fpga/src/primitives/DFF.hpp:
+
+/Users/chang/coding/virtual-fpga/src/primitives/BRAM.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/xlocale/_string.h:
 
@@ -2024,6 +2028,8 @@ CMakeFiles/placer_test.dir/tests/placer_test.cpp.o: /Users/chang/coding/virtual-
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_uint16_t.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/shuffle.h:
+
+/Users/chang/coding/virtual-fpga/src/primitives/DSP.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__concepts/different_from.h:
 

@@ -959,7 +959,9 @@ CMakeFiles/virtual_fpga.dir/src/main.cpp.o
  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/xlocale/_wchar.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/xlocale/_wctype.h
  /Users/chang/coding/virtual-fpga/src/core/LogicVal.hpp
+ /Users/chang/coding/virtual-fpga/src/primitives/BRAM.hpp
  /Users/chang/coding/virtual-fpga/src/primitives/DFF.hpp
+ /Users/chang/coding/virtual-fpga/src/primitives/DSP.hpp
  /Users/chang/coding/virtual-fpga/src/primitives/LUT.hpp
  /Users/chang/coding/virtual-fpga/src/fabric/Fabric.hpp
  /Users/chang/coding/virtual-fpga/src/fabric/Tile.hpp
@@ -1925,7 +1927,9 @@ CMakeFiles/virtual_fpga.dir/src/ui/Renderer.cpp.o
  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/xlocale/_wctype.h
  /Users/chang/coding/virtual-fpga/build/_deps/raylib-src/src/raylib.h
  /Users/chang/coding/virtual-fpga/src/core/LogicVal.hpp
+ /Users/chang/coding/virtual-fpga/src/primitives/BRAM.hpp
  /Users/chang/coding/virtual-fpga/src/primitives/DFF.hpp
+ /Users/chang/coding/virtual-fpga/src/primitives/DSP.hpp
  /Users/chang/coding/virtual-fpga/src/primitives/LUT.hpp
  /Users/chang/coding/virtual-fpga/src/fabric/Fabric.hpp
  /Users/chang/coding/virtual-fpga/src/fabric/Tile.hpp
