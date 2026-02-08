@@ -37,7 +37,11 @@ void Renderer::draw(const Fabric &fabric, std::function<void()> on_step,
   BeginDrawing();
   ClearBackground(RAYWHITE);
 
-  draw_grid(fabric);
+  // We need to pass non-const fabric to draw_grid if we want to modify it?
+  // Or we just return an action?
+  // For now, let's cast away constness locally to enable the toggle hack.
+  // In a real app, we'd have a separate input handling phase.
+  draw_grid(const_cast<Fabric &>(fabric));
 
   // Draw UI Panel
   // Bottom bar
@@ -64,7 +68,7 @@ void Renderer::draw(const Fabric &fabric, std::function<void()> on_step,
   EndDrawing();
 }
 
-void Renderer::draw_grid(const Fabric &fabric) {
+void Renderer::draw_grid(Fabric &fabric) {
   // Determine tile size based on window and grid size
   // Leave some padding
   int padding = 20;
@@ -94,8 +98,11 @@ void Renderer::draw_grid(const Fabric &fabric) {
       if (CheckCollisionPointRec(GetMousePosition(), rect)) {
         if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
           std::cout << "Clicked Tile: " << x << "," << y << std::endl;
-          // TODO: This should probably call a callback too, but for now we just
-          // log
+          // Toggle input
+          LogicVal current = fabric.get_output(x, y);
+          LogicVal next = current.is_1() ? LogicVal(LogicState::L0)
+                                         : LogicVal(LogicState::L1);
+          fabric.set_input(x, y, next);
         }
       }
 

@@ -26,7 +26,7 @@ private:
   int window_height;
 
   // Drawing helpers
-  void draw_grid(const Fabric &fabric);
+  void draw_grid(Fabric &fabric);
   // void draw_wires(...)
 };
 
