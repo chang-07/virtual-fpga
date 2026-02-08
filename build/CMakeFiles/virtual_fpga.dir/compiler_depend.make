@@ -980,6 +980,7 @@ CMakeFiles/virtual_fpga.dir/src/main.cpp.o: /Users/chang/coding/virtual-fpga/src
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/xlocale/_time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/xlocale/_wchar.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/xlocale/_wctype.h \
+  _deps/raylib-src/src/raylib.h \
   /Users/chang/coding/virtual-fpga/src/core/LogicVal.hpp \
   /Users/chang/coding/virtual-fpga/src/primitives/BRAM.hpp \
   /Users/chang/coding/virtual-fpga/src/primitives/DFF.hpp \
@@ -1980,8 +1981,6 @@ CMakeFiles/virtual_fpga.dir/src/ui/Renderer.cpp.o: /Users/chang/coding/virtual-f
 
 /Users/chang/coding/virtual-fpga/src/ui/raygui.h:
 
-_deps/raylib-src/src/raylib.h:
-
 /Users/chang/coding/virtual-fpga/src/ui/Renderer.cpp:
 
 /Users/chang/coding/virtual-fpga/src/ui/Renderer.hpp:
@@ -1997,6 +1996,8 @@ _deps/raylib-src/src/raylib.h:
 /Users/chang/coding/virtual-fpga/src/primitives/DFF.hpp:
 
 /Users/chang/coding/virtual-fpga/src/primitives/BRAM.hpp:
+
+_deps/raylib-src/src/raylib.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/xlocale/_string.h:
 

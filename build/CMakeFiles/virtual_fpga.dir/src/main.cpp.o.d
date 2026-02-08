@@ -996,4 +996,5 @@ CMakeFiles/virtual_fpga.dir/src/main.cpp.o: \
   /Users/chang/coding/virtual-fpga/src/ui/Renderer.hpp \
   /Users/chang/coding/virtual-fpga/src/ui/../analysis/TimingAnalyzer.hpp \
   /Users/chang/coding/virtual-fpga/src/ui/../cad/Router.hpp \
-  /Users/chang/coding/virtual-fpga/src/ui/../fabric/Fabric.hpp
+  /Users/chang/coding/virtual-fpga/src/ui/../fabric/Fabric.hpp \
+  /Users/chang/coding/virtual-fpga/build/_deps/raylib-src/src/raylib.h

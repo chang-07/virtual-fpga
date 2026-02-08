@@ -14,6 +14,7 @@ static float TextToFloat(const char *text) {
 
 #define RAYGUI_IMPLEMENTATION
 #include "raygui.h"
+#include "raymath.h"
 #pragma clang diagnostic pop
 
 namespace vfpga {
@@ -26,17 +27,57 @@ Renderer::Renderer(int width, int height, const std::string &title)
 
   InitWindow(width, height, title.c_str());
   SetTargetFPS(60);
+
+  // Initialize Camera
+  camera.target = {0.0f, 0.0f};
+  camera.offset = {0.0f, 0.0f};
+  camera.rotation = 0.0f;
+  camera.zoom = 1.0f;
 }
 
 Renderer::~Renderer() { CloseWindow(); }
 
 bool Renderer::should_close() { return WindowShouldClose(); }
 
+void Renderer::update_camera() {
+  // Translate based on right mouse click
+  if (IsMouseButtonDown(MOUSE_BUTTON_RIGHT) ||
+      IsMouseButtonDown(MOUSE_BUTTON_MIDDLE)) {
+    Vector2 delta = GetMouseDelta();
+    delta = Vector2Scale(delta, -1.0f / camera.zoom);
+    camera.target = Vector2Add(camera.target, delta);
+  }
+
+  // Zoom based on mouse wheel
+  float wheel = GetMouseWheelMove();
+  if (wheel != 0) {
+    // Get the world point that is under the mouse
+    Vector2 mouseWorldPos = GetScreenToWorld2D(GetMousePosition(), camera);
+
+    // Set the offset to where the mouse is
+    camera.offset = GetMousePosition();
+
+    // Set the target to match, so that the camera maps the world space point
+    // under the cursor to the screen space point under the cursor at any zoom
+    camera.target = mouseWorldPos;
+
+    // Zoom increment
+    float scaleFactor = 1.0f + (0.25f * fabsf(wheel));
+    if (wheel < 0)
+      scaleFactor = 1.0f / scaleFactor;
+    camera.zoom = Clamp(camera.zoom * scaleFactor, 0.125f, 64.0f);
+  }
+}
+
 void Renderer::draw(const Fabric &fabric, const Router &router,
                     const TimingResult &timing, std::function<void()> on_step,
                     std::function<void()> on_reset) {
   BeginDrawing();
   ClearBackground(RAYWHITE);
+
+  update_camera();
+
+  BeginMode2D(camera);
 
   // We need to pass non-const fabric to draw_grid if we want to modify it?
   // Or we just return an action?
@@ -87,6 +128,8 @@ void Renderer::draw(const Fabric &fabric, const Router &router,
     DrawRectangleLinesEx(
         {(float)px, (float)py, (float)tile_size, (float)tile_size}, 3.0f, RED);
   }
+
+  EndMode2D();
 
   // Draw UI Panel
   // Bottom bar
@@ -140,7 +183,9 @@ void Renderer::draw_grid(Fabric &fabric) {
                         (float)tile_size - 2};
 
       // Interaction: Toggle on Click
-      if (CheckCollisionPointRec(GetMousePosition(), rect)) {
+      // Transform mouse position to world coordinates
+      Vector2 mouseWorldPos = GetScreenToWorld2D(GetMousePosition(), camera);
+      if (CheckCollisionPointRec(mouseWorldPos, rect)) {
         if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
           std::cout << "Clicked Tile: " << x << "," << y << std::endl;
           // Toggle input

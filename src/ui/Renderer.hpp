@@ -3,6 +3,7 @@
 #include "../analysis/TimingAnalyzer.hpp"
 #include "../cad/Router.hpp"
 #include "../fabric/Fabric.hpp"
+#include "raylib.h"
 #include <functional>
 #include <string>
 
@@ -30,8 +31,11 @@ private:
   int window_height;
 
   // Drawing helpers
+  void update_camera();
   void draw_grid(Fabric &fabric);
   // void draw_wires(...)
+
+  Camera2D camera;
 };
 
 } // namespace vfpga
