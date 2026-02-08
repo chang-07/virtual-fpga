@@ -88,8 +88,69 @@ The toolchain compiles high-level designs into a binary bitstream.
 
 ---
 
-## 7. Project Roadmap
-1.  **Phase 1: Core:** Implement `LogicType` (4-state), `LogicElement`, and `Grid` in C++20.
-2.  **Phase 2: Toolchain:** Build the `Place` (Annealer) and `Route` (Pathfinder) modules in C++/Python.
-3.  **Phase 3: Integration:** Integrate ImGui + SFML for the native visualization dashboard.
-4.  **Phase 4: Peripherals:** Add Block RAM (BRAM) and DSP slice support.
+## 7. Detailed Project Roadmap
+
+### Phase 1: Core Simulation Engine (The Kernel)
+**Focus:** Correctness, Basic Primitives, Unit Testing.
+
+*   **1.1 Data Types & Logic**
+    *   [ ] Implement `LogicVal` (4-state: `0`, `1`, `X`, `Z`) with overloaded operators (`&`, `|`, `^`, `~`).
+    *   [ ] Implement `Signal` class (representing a wire/net) with resolution functions for multiple drivers (handling contention).
+    *   [ ] Create `Logger` and `Assertion` macros for debug capability.
+*   **1.2 Hardware Primitives**
+    *   [ ] **LUT (Look-Up Table):** Implement template-based $K$-input LUT with configuration masking.
+    *   [ ] **DFF (Flip-Flop):** Implement positive-edge triggered state element with optional enable/reset lines.
+    *   [ ] **Mux/Switch:** Implement configurable routing switches for the interconnect.
+*   **1.3 The Grid & Fabric Helpers**
+    *   [ ] Define `Tile` structure (holding primitive pointers and switch matrices).
+    *   [ ] Implement `Fabric` class to manage the global $W \times H$ grid.
+    *   [ ] Develop `BitstreamLoader` to initialize LUT masks and Switch settings from a binary (`.vbit`) file.
+*   **1.4 Verification**
+    *   [ ] Create unit tests for `LogicVal` truth tables.
+    *   [ ] Create a "Single LUT" testbench (manually verify XOR/AND behavior correctness).
+
+### Phase 2: CAD Toolchain (The Compiler)
+**Focus:** Mapping Netlists to the Fabric.
+
+*   **2.1 Frontend Parsing**
+    *   [ ] Implement parser for JSON Netlists (compatible with Yosys JSON output).
+    *   [ ] Build an in-memory `NetlistGraph` (Nodes = Cells, Edges = Nets).
+*   **2.2 Tech Mapping & Packing**
+    *   [ ] Map generic logic gates to physical `$lut` and `$dff` cells.
+    *   [ ] Pack primitives into Clusters (CLBs) if using a clustered architecture.
+*   **2.3 Physical Placement (Simulated Annealing)**
+    *   [ ] Implement random placement initialization.
+    *   [ ] Develop bounding-box `CostFunction`: $Cost = \alpha \cdot HPWL + \beta \cdot Congestion$.
+    *   [ ] Implement **Annealing Loop**: Swap blocks, evaluate delta cost, apply temperature cooling schedule.
+*   **2.4 Routing (Pathfinder)**
+    *   [ ] Build `RoutingGraph`: Nodes = Pins/Wires, Edges = Switches.
+    *   [ ] Implement **A* Search** (Shortest Path) for individual nets.
+    *   [ ] Implement **Congestion Negotiation**: Iteratively rip-up and reroute colliding nets with increasing costs until conflict-free.
+
+### Phase 3: Visualization & Interactive Runtime
+**Focus:** UI/UX, Real-time Interaction.
+
+*   **3.1 Graphics Engine Setup**
+    *   [ ] Initialize Native Window (using SFML or Raylib).
+    *   [ ] Implement a **Batch Renderer** (Vertex Arrays) for the Grid to handle high frame rates.
+    *   [ ] Implement "Zoom & Pan" camera controls.
+*   **3.2 UI Overlays (ImGui)**
+    *   [ ] **Sidebar:** Integrate simulation controls (Speed, Step, Pause, Reset).
+    *   [ ] **Inspector:** Logic to hover over tiles and display coordinate $(x,y)$ and internal register state.
+    *   [ ] **Signal Analyzer:** Ability to click a wire/pin to add it to a "Waveform View".
+*   **3.3 Interactive Stimulation**
+    *   [ ] Implement "Virtual Switch" clickable elements (toggles GPI bits).
+    *   [ ] Implement "Virtual LED" rendering (reads GPO bits).
+
+### Phase 4: Advanced Architecture Features
+**Focus:** Completeness, Performance.
+
+*   **4.1 Hard Blocks**
+    *   [ ] Implement **BRAM (Block RAM):** 4K/16K blocks with read/write ports.
+    *   [ ] Implement **DSP Slices:** Hardware multipliers/accumulators.
+*   **4.2 Timing Analysis**
+    *   [ ] Implement connection delay modeling (Manhattan distance approx).
+    *   [ ] Generate Static Timing Analysis (STA) reports.
+*   **4.3 Optimization**
+    *   [ ] Implement multithreaded simulation (graph partitioning).
+    *   [ ] Optimize rendering culling for large grids.
