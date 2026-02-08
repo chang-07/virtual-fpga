@@ -1,9 +1,20 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.20)
 project(VirtualFPGA VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
+
+# Dependencies
+include(FetchContent)
+FetchContent_Declare(
+    raylib
+    URL https://github.com/raysan5/raylib/archive/refs/tags/5.0.tar.gz
+    DOWNLOAD_EXTRACT_TIMESTAMP TRUE
+)
+FetchContent_MakeAvailable(raylib)
+FetchContent_MakeAvailable(raylib)
+
 
 # Enable warnings
 if(MSVC)
@@ -43,3 +54,18 @@ target_link_libraries(placer_test PRIVATE vfpga_core)
 
 add_executable(router_test tests/router_test.cpp)
 target_link_libraries(router_test PRIVATE vfpga_core)
+
+add_executable(flow_test tests/flow_test.cpp)
+target_link_libraries(flow_test PRIVATE vfpga_core)
+
+# Main Application
+add_executable(virtual_fpga src/main.cpp src/ui/Renderer.cpp)
+target_link_libraries(virtual_fpga PRIVATE vfpga_core raylib)
+# Ensure we can find raylib.h
+target_include_directories(virtual_fpga PRIVATE ${raylib_SOURCE_DIR}/src)
+
+add_executable(renderer_test tests/renderer_test.cpp src/ui/Renderer.cpp)
+target_link_libraries(renderer_test PRIVATE vfpga_core raylib)
+target_include_directories(renderer_test PRIVATE ${raylib_SOURCE_DIR}/src)
+
+

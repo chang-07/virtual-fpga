@@ -1,7 +1,10 @@
 #include "Router.hpp"
+#include <algorithm>
 #include <cmath>
 #include <iostream>
+#include <limits>
 #include <queue>
+#include <set>
 #include <unordered_map>
 
 namespace vfpga {
@@ -14,11 +17,7 @@ namespace vfpga {
 // This is a placeholder because building a full routing graph is complex.
 
 void Router::build_graph(Fabric &fabric, std::vector<RoutingNode> &graph) {
-  // TODO: Implement full graph construction
-  // For now, let's just assume we can magically route for the prototype's sake?
-  // No, we promised Pathfinder.
-
-  // Let's make a grid of nodes. One node per tile "Crossbar".
+  // Grid of nodes. One node per tile "Crossbar".
   graph.resize(fabric.width * fabric.height);
   for (int y = 0; y < fabric.height; ++y) {
     for (int x = 0; x < fabric.width; ++x) {
@@ -26,6 +25,7 @@ void Router::build_graph(Fabric &fabric, std::vector<RoutingNode> &graph) {
       graph[id].id = id;
       graph[id].x = x;
       graph[id].y = y;
+      graph[id].capacity = 1; // Wires have capacity 1
 
       // Connect to neighbors (NSEW)
       if (x > 0)
@@ -40,9 +40,15 @@ void Router::build_graph(Fabric &fabric, std::vector<RoutingNode> &graph) {
   }
 }
 
+// Pathfinder Parameters
+const int MAX_ITERATIONS = 50;
+const double PRES_FAC_INIT = 0.5;
+const double PRES_FAC_MULT = 1.5; // Slower growth for stability
+const double HIST_FAC = 1.0;
+
 bool Router::route(Fabric &fabric, const std::vector<LogicBlock> &blocks,
                    const std::map<int, std::pair<int, int>> &placement) {
-  std::cout << "Starting Routing..." << std::endl;
+  std::cout << "Starting Routing (Pathfinder)..." << std::endl;
 
   std::vector<RoutingNode> graph;
   build_graph(fabric, graph);
@@ -54,73 +60,166 @@ bool Router::route(Fabric &fabric, const std::vector<LogicBlock> &blocks,
   }
 
   // Identify Nets
-  // NetName -> SourceBlockID, [SinkBlockIDs]
   struct NetInfo {
-    int source_block = -1;
-    std::vector<int> sink_blocks;
+    std::string name;
+    int source_node = -1;
+    std::vector<int> sink_nodes;
+    std::vector<int> current_path; // List of nodes used
   };
-  std::unordered_map<std::string, NetInfo> nets;
+  std::vector<NetInfo> nets;
+
+  // Helper to find existing net or create
+  auto get_net = [&](const std::string &name) -> NetInfo & {
+    for (auto &n : nets)
+      if (n.name == name)
+        return n;
+    nets.push_back({name});
+    return nets.back();
+  };
 
   for (const auto &block : blocks) {
+    if (block_to_node.find(block.id) == block_to_node.end())
+      continue;
+    int node_id = block_to_node[block.id];
+
     if (!block.output_net.empty()) {
-      nets[block.output_net].source_block = block.id;
+      get_net(block.output_net).name = block.output_net;
+      get_net(block.output_net).source_node = node_id;
     }
     for (const auto &input_net : block.input_nets) {
       if (!input_net.empty()) {
-        nets[input_net].sink_blocks.push_back(block.id);
+        get_net(input_net).name = input_net;
+        get_net(input_net).sink_nodes.push_back(node_id);
       }
     }
-    // Clock?
   }
 
-  // Route each net
-  for (const auto &[net_name, info] : nets) {
-    if (info.source_block == -1)
-      continue; // Input from IO?
+  double pres_fac = PRES_FAC_INIT;
 
-    int source_node = block_to_node[info.source_block];
+  for (int iter = 0; iter < MAX_ITERATIONS; ++iter) {
+    bool congestion_free = true;
 
-    for (int sink_block : info.sink_blocks) {
-      int sink_node = block_to_node[sink_block];
+    // 1. Rip-up & Route all nets
+    for (auto &net : nets) {
+      if (net.source_node == -1)
+        continue; // Input from IO? (ignore for now)
+      if (net.sink_nodes.empty())
+        continue;
 
-      // BFS/A* for path
-      // For now, simple BFS
-      std::queue<int> q;
-      q.push(source_node);
-      std::unordered_map<int, int> parent;
-      parent[source_node] = -1;
-      bool found = false;
+      // Rip-up: Decrease occupancy of current path
+      // Sort and unique to avoid double decrement if we store duplicates
+      std::sort(net.current_path.begin(), net.current_path.end());
+      net.current_path.erase(
+          std::unique(net.current_path.begin(), net.current_path.end()),
+          net.current_path.end());
 
-      while (!q.empty()) {
-        int curr = q.front();
-        q.pop();
+      for (int path_node : net.current_path) {
+        if (graph[path_node].occupancy > 0)
+          graph[path_node].occupancy--;
+      }
+      net.current_path.clear();
 
-        if (curr == sink_node) {
-          found = true;
-          break;
-        }
+      // Route to all sinks (MST-like or just path-to-each)
+      std::vector<int> full_net_path;
 
-        for (int neighbor : graph[curr].neighbors) {
-          if (parent.find(neighbor) == parent.end()) {
-            parent[neighbor] = curr;
-            q.push(neighbor);
+      for (int sink_node : net.sink_nodes) {
+        // Dijkstra with Pathfinder Cost Function
+        std::vector<double> dist(graph.size(),
+                                 std::numeric_limits<double>::infinity());
+        std::vector<int> parent(graph.size(), -1);
+        std::priority_queue<std::pair<double, int>,
+                            std::vector<std::pair<double, int>>, std::greater<>>
+            pq;
+
+        dist[net.source_node] = 0;
+        pq.push({0, net.source_node});
+
+        int found_end = -1;
+
+        while (!pq.empty()) {
+          auto [d, u] = pq.top();
+          pq.pop();
+
+          if (d > dist[u])
+            continue;
+          if (u == sink_node) {
+            found_end = u;
+            break;
+          }
+
+          for (int v : graph[u].neighbors) {
+            // Calculate Pathfinder Cost
+            // Cost = (b + h) * p
+
+            double occ = static_cast<double>(graph[v].occupancy);
+            double cap = static_cast<double>(graph[v].capacity);
+
+            // Note: occupancy is what it WOULD be if we use it.
+            // Since we ripped up, occ currently reflects OTHER nets.
+            // So if we use it, new_occ = occ + 1.
+            // Congestion = max(0, new_occ - cap)
+
+            double congestion = std::max(0.0, occ + 1.0 - cap);
+            double p_n = 1.0 + congestion * pres_fac;
+
+            double cost_v =
+                (graph[v].base_cost + graph[v].hist_congestion_cost) * p_n;
+
+            if (dist[u] + cost_v < dist[v]) {
+              dist[v] = dist[u] + cost_v;
+              parent[v] = u;
+              pq.push({dist[v], v});
+            }
           }
         }
+
+        if (found_end != -1) {
+          // Backtrack
+          int curr = found_end;
+          while (curr != -1) {
+            full_net_path.push_back(curr);
+            curr = parent[curr];
+          }
+        } else {
+          std::cerr << "Failed to route part of net: " << net.name << std::endl;
+        }
       }
 
-      if (found) {
-        // Backtrack to trace path (placeholder for actually setting switches)
-        // std::cout << "Routed " << net_name << " Source: " << source_node << "
-        // Sink: " << sink_node << std::endl;
-      } else {
-        std::cerr << "Failed to route net: " << net_name << std::endl;
-        return false;
+      // Deduplicate path nodes for accurate occupancy
+      std::sort(full_net_path.begin(), full_net_path.end());
+      full_net_path.erase(
+          std::unique(full_net_path.begin(), full_net_path.end()),
+          full_net_path.end());
+
+      // Re-apply occupancy
+      for (int node_id : full_net_path) {
+        graph[node_id].occupancy++;
+      }
+      net.current_path = full_net_path;
+    }
+
+    // 2. Update Costs & Check Congestion
+    congestion_free = true;
+    for (auto &node : graph) {
+      if (node.occupancy > node.capacity) {
+        congestion_free = false;
+        node.hist_congestion_cost +=
+            (node.occupancy - node.capacity) * HIST_FAC;
       }
     }
+
+    if (congestion_free) {
+      std::cout << "Routing successful at iteration " << iter << std::endl;
+      return true;
+    }
+
+    // Slowly increase pressure
+    pres_fac *= PRES_FAC_MULT;
   }
 
-  std::cout << "Routing Complete (Simplified)." << std::endl;
-  return true;
+  std::cerr << "Routing failed to resolve congestion after " << MAX_ITERATIONS
+            << " iterations." << std::endl;
+  return false;
 }
 
 } // namespace vfpga

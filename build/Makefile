@@ -65,6 +65,26 @@ CMAKE_BINARY_DIR = /Users/chang/coding/virtual-fpga/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target package
+package: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Run CPack packaging tool..."
+	/opt/homebrew/bin/cpack --config ./CPackConfig.cmake
+.PHONY : package
+
+# Special rule for the target package
+package/fast: package
+.PHONY : package/fast
+
+# Special rule for the target package_source
+package_source:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Run CPack packaging tool for source..."
+	/opt/homebrew/bin/cpack --config ./CPackSourceConfig.cmake
+.PHONY : package_source
+
+# Special rule for the target package_source
+package_source/fast: package_source
+.PHONY : package_source/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake cache editor..."
@@ -84,6 +104,51 @@ rebuild_cache:
 # Special rule for the target rebuild_cache
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	/opt/homebrew/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	/opt/homebrew/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	/opt/homebrew/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	/opt/homebrew/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	/opt/homebrew/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	/opt/homebrew/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -193,6 +258,97 @@ router_test: cmake_check_build_system
 router_test/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/router_test.dir/build.make CMakeFiles/router_test.dir/build
 .PHONY : router_test/fast
+
+#=============================================================================
+# Target rules for targets named flow_test
+
+# Build rule for target.
+flow_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 flow_test
+.PHONY : flow_test
+
+# fast build rule for target.
+flow_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flow_test.dir/build.make CMakeFiles/flow_test.dir/build
+.PHONY : flow_test/fast
+
+#=============================================================================
+# Target rules for targets named virtual_fpga
+
+# Build rule for target.
+virtual_fpga: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 virtual_fpga
+.PHONY : virtual_fpga
+
+# fast build rule for target.
+virtual_fpga/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/virtual_fpga.dir/build.make CMakeFiles/virtual_fpga.dir/build
+.PHONY : virtual_fpga/fast
+
+#=============================================================================
+# Target rules for targets named renderer_test
+
+# Build rule for target.
+renderer_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 renderer_test
+.PHONY : renderer_test
+
+# fast build rule for target.
+renderer_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/renderer_test.dir/build.make CMakeFiles/renderer_test.dir/build
+.PHONY : renderer_test/fast
+
+#=============================================================================
+# Target rules for targets named uninstall
+
+# Build rule for target.
+uninstall: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 uninstall
+.PHONY : uninstall
+
+# fast build rule for target.
+uninstall/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/raylib-build/CMakeFiles/uninstall.dir/build.make _deps/raylib-build/CMakeFiles/uninstall.dir/build
+.PHONY : uninstall/fast
+
+#=============================================================================
+# Target rules for targets named raylib
+
+# Build rule for target.
+raylib: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 raylib
+.PHONY : raylib
+
+# fast build rule for target.
+raylib/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build
+.PHONY : raylib/fast
+
+#=============================================================================
+# Target rules for targets named glfw
+
+# Build rule for target.
+glfw: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 glfw
+.PHONY : glfw
+
+# fast build rule for target.
+glfw/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build
+.PHONY : glfw/fast
+
+#=============================================================================
+# Target rules for targets named update_mappings
+
+# Build rule for target.
+update_mappings: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 update_mappings
+.PHONY : update_mappings
+
+# fast build rule for target.
+update_mappings/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/update_mappings.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/update_mappings.dir/build
+.PHONY : update_mappings/fast
 
 src/cad/Packer.o: src/cad/Packer.cpp.o
 .PHONY : src/cad/Packer.o
@@ -362,6 +518,81 @@ src/fabric/BitstreamLoader.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/vfpga_core.dir/build.make CMakeFiles/vfpga_core.dir/src/fabric/BitstreamLoader.cpp.s
 .PHONY : src/fabric/BitstreamLoader.cpp.s
 
+src/main.o: src/main.cpp.o
+.PHONY : src/main.o
+
+# target to build an object file
+src/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/virtual_fpga.dir/build.make CMakeFiles/virtual_fpga.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
+
+src/main.i: src/main.cpp.i
+.PHONY : src/main.i
+
+# target to preprocess a source file
+src/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/virtual_fpga.dir/build.make CMakeFiles/virtual_fpga.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
+
+src/main.s: src/main.cpp.s
+.PHONY : src/main.s
+
+# target to generate assembly for a file
+src/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/virtual_fpga.dir/build.make CMakeFiles/virtual_fpga.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
+
+src/ui/Renderer.o: src/ui/Renderer.cpp.o
+.PHONY : src/ui/Renderer.o
+
+# target to build an object file
+src/ui/Renderer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/virtual_fpga.dir/build.make CMakeFiles/virtual_fpga.dir/src/ui/Renderer.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/renderer_test.dir/build.make CMakeFiles/renderer_test.dir/src/ui/Renderer.cpp.o
+.PHONY : src/ui/Renderer.cpp.o
+
+src/ui/Renderer.i: src/ui/Renderer.cpp.i
+.PHONY : src/ui/Renderer.i
+
+# target to preprocess a source file
+src/ui/Renderer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/virtual_fpga.dir/build.make CMakeFiles/virtual_fpga.dir/src/ui/Renderer.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/renderer_test.dir/build.make CMakeFiles/renderer_test.dir/src/ui/Renderer.cpp.i
+.PHONY : src/ui/Renderer.cpp.i
+
+src/ui/Renderer.s: src/ui/Renderer.cpp.s
+.PHONY : src/ui/Renderer.s
+
+# target to generate assembly for a file
+src/ui/Renderer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/virtual_fpga.dir/build.make CMakeFiles/virtual_fpga.dir/src/ui/Renderer.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/renderer_test.dir/build.make CMakeFiles/renderer_test.dir/src/ui/Renderer.cpp.s
+.PHONY : src/ui/Renderer.cpp.s
+
+tests/flow_test.o: tests/flow_test.cpp.o
+.PHONY : tests/flow_test.o
+
+# target to build an object file
+tests/flow_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flow_test.dir/build.make CMakeFiles/flow_test.dir/tests/flow_test.cpp.o
+.PHONY : tests/flow_test.cpp.o
+
+tests/flow_test.i: tests/flow_test.cpp.i
+.PHONY : tests/flow_test.i
+
+# target to preprocess a source file
+tests/flow_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flow_test.dir/build.make CMakeFiles/flow_test.dir/tests/flow_test.cpp.i
+.PHONY : tests/flow_test.cpp.i
+
+tests/flow_test.s: tests/flow_test.cpp.s
+.PHONY : tests/flow_test.s
+
+# target to generate assembly for a file
+tests/flow_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flow_test.dir/build.make CMakeFiles/flow_test.dir/tests/flow_test.cpp.s
+.PHONY : tests/flow_test.cpp.s
+
 tests/main_test.o: tests/main_test.cpp.o
 .PHONY : tests/main_test.o
 
@@ -458,6 +689,30 @@ tests/placer_test.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/placer_test.dir/build.make CMakeFiles/placer_test.dir/tests/placer_test.cpp.s
 .PHONY : tests/placer_test.cpp.s
 
+tests/renderer_test.o: tests/renderer_test.cpp.o
+.PHONY : tests/renderer_test.o
+
+# target to build an object file
+tests/renderer_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/renderer_test.dir/build.make CMakeFiles/renderer_test.dir/tests/renderer_test.cpp.o
+.PHONY : tests/renderer_test.cpp.o
+
+tests/renderer_test.i: tests/renderer_test.cpp.i
+.PHONY : tests/renderer_test.i
+
+# target to preprocess a source file
+tests/renderer_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/renderer_test.dir/build.make CMakeFiles/renderer_test.dir/tests/renderer_test.cpp.i
+.PHONY : tests/renderer_test.cpp.i
+
+tests/renderer_test.s: tests/renderer_test.cpp.s
+.PHONY : tests/renderer_test.s
+
+# target to generate assembly for a file
+tests/renderer_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/renderer_test.dir/build.make CMakeFiles/renderer_test.dir/tests/renderer_test.cpp.s
+.PHONY : tests/renderer_test.cpp.s
+
 tests/router_test.o: tests/router_test.cpp.o
 .PHONY : tests/router_test.o
 
@@ -489,13 +744,26 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... install"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... list_install_components"
+	@echo "... package"
+	@echo "... package_source"
 	@echo "... rebuild_cache"
+	@echo "... uninstall"
+	@echo "... update_mappings"
+	@echo "... flow_test"
+	@echo "... glfw"
 	@echo "... packer_test"
 	@echo "... parser_test"
 	@echo "... placer_test"
+	@echo "... raylib"
+	@echo "... renderer_test"
 	@echo "... router_test"
 	@echo "... vfpga_core"
 	@echo "... vfpga_test"
+	@echo "... virtual_fpga"
 	@echo "... src/cad/Packer.o"
 	@echo "... src/cad/Packer.i"
 	@echo "... src/cad/Packer.s"
@@ -517,6 +785,15 @@ help:
 	@echo "... src/fabric/BitstreamLoader.o"
 	@echo "... src/fabric/BitstreamLoader.i"
 	@echo "... src/fabric/BitstreamLoader.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
+	@echo "... src/ui/Renderer.o"
+	@echo "... src/ui/Renderer.i"
+	@echo "... src/ui/Renderer.s"
+	@echo "... tests/flow_test.o"
+	@echo "... tests/flow_test.i"
+	@echo "... tests/flow_test.s"
 	@echo "... tests/main_test.o"
 	@echo "... tests/main_test.i"
 	@echo "... tests/main_test.s"
@@ -529,6 +806,9 @@ help:
 	@echo "... tests/placer_test.o"
 	@echo "... tests/placer_test.i"
 	@echo "... tests/placer_test.s"
+	@echo "... tests/renderer_test.o"
+	@echo "... tests/renderer_test.i"
+	@echo "... tests/renderer_test.s"
 	@echo "... tests/router_test.o"
 	@echo "... tests/router_test.i"
 	@echo "... tests/router_test.s"

@@ -1,0 +1,1 @@
+/usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/virtual_fpga.dir/src/main.cpp.o CMakeFiles/virtual_fpga.dir/src/ui/Renderer.cpp.o -o virtual_fpga  libvfpga_core.a _deps/raylib-build/raylib/libraylib.a -framework OpenGL _deps/raylib-build/raylib/external/glfw/src/libglfw3.a -framework Cocoa -framework IOKit -framework CoreFoundation
