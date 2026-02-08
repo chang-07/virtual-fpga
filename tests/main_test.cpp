@@ -1,5 +1,7 @@
 #include "../src/core/LogicVal.hpp"
 #include "../src/core/Signal.hpp"
+#include "../src/primitives/DFF.hpp"
+#include "../src/primitives/LUT.hpp"
 #include <cassert>
 #include <iostream>
 #include <vector>
@@ -77,9 +79,68 @@ void test_signal_resolution() {
   std::cout << "Signal Resolution Tests Passed!" << std::endl;
 }
 
+void test_lut() {
+  std::cout << "Testing LUT..." << std::endl;
+
+  // 2-input LUT (XOR gate)
+  vfpga::LUT<2> lut;
+  lut.configure({
+      vfpga::LogicState::L0, // 00
+      vfpga::LogicState::L1, // 01
+      vfpga::LogicState::L1, // 10
+      vfpga::LogicState::L0  // 11
+  });
+
+  assert(lut.evaluate({vfpga::LogicState::L0, vfpga::LogicState::L0}).is_0());
+  assert(lut.evaluate({vfpga::LogicState::L0, vfpga::LogicState::L1}).is_1());
+  assert(lut.evaluate({vfpga::LogicState::L1, vfpga::LogicState::L0}).is_1());
+  assert(lut.evaluate({vfpga::LogicState::L1, vfpga::LogicState::L1}).is_0());
+
+  std::cout << "LUT Tests Passed!" << std::endl;
+}
+
+void test_dff() {
+  std::cout << "Testing DFF..." << std::endl;
+
+  vfpga::DFF dff;
+
+  // Initial state unknown
+  assert(dff.get_output().is_X());
+
+  // Cycle 1: D=1, Enable=1, Reset=0
+  dff.props(vfpga::LogicState::L1, vfpga::LogicState::L1,
+            vfpga::LogicState::L0);
+  // Before update, output still X
+  assert(dff.get_output().is_X());
+
+  // Clock edge
+  dff.update();
+  assert(dff.get_output().is_1());
+
+  // Cycle 2: D=0, Enable=1
+  dff.props(vfpga::LogicState::L0);
+  dff.update();
+  assert(dff.get_output().is_0());
+
+  // Cycle 3: Enable=0 (Hold)
+  dff.props(vfpga::LogicState::L1, vfpga::LogicState::L0);
+  dff.update();
+  assert(dff.get_output().is_0()); // Should hold 0
+
+  // Cycle 4: Reset=1
+  dff.props(vfpga::LogicState::L1, vfpga::LogicState::L1,
+            vfpga::LogicState::L1);
+  dff.update();
+  assert(dff.get_output().is_0());
+
+  std::cout << "DFF Tests Passed!" << std::endl;
+}
+
 int main() {
   test_logic_val();
   test_signal_resolution();
+  test_lut();
+  test_dff();
   std::cout << "All Tests Passed!" << std::endl;
   return 0;
 }

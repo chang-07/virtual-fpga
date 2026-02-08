@@ -957,6 +957,9 @@ CMakeFiles/vfpga_test.dir/tests/main_test.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/print \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/unistd.h \
   /Users/chang/coding/virtual-fpga/tests/../src/core/Signal.hpp \
+  /Users/chang/coding/virtual-fpga/tests/../src/primitives/DFF.hpp \
+  /Users/chang/coding/virtual-fpga/tests/../src/primitives/../core/LogicVal.hpp \
+  /Users/chang/coding/virtual-fpga/tests/../src/primitives/LUT.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/cassert \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/assert.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_assert.h \
