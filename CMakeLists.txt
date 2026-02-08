@@ -19,6 +19,7 @@ set(CORE_SOURCES
     src/fabric/BitstreamLoader.cpp
     src/cad/Parser.cpp
     src/cad/Packer.cpp
+    src/cad/Placer.cpp
 
 )
 
@@ -35,3 +36,6 @@ target_link_libraries(parser_test PRIVATE vfpga_core)
 
 add_executable(packer_test tests/packer_test.cpp)
 target_link_libraries(packer_test PRIVATE vfpga_core)
+
+add_executable(placer_test tests/placer_test.cpp)
+target_link_libraries(placer_test PRIVATE vfpga_core)

@@ -168,6 +168,19 @@ packer_test/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/packer_test.dir/build.make CMakeFiles/packer_test.dir/build
 .PHONY : packer_test/fast
 
+#=============================================================================
+# Target rules for targets named placer_test
+
+# Build rule for target.
+placer_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 placer_test
+.PHONY : placer_test
+
+# fast build rule for target.
+placer_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/placer_test.dir/build.make CMakeFiles/placer_test.dir/build
+.PHONY : placer_test/fast
+
 src/cad/Packer.o: src/cad/Packer.cpp.o
 .PHONY : src/cad/Packer.o
 
@@ -215,6 +228,30 @@ src/cad/Parser.s: src/cad/Parser.cpp.s
 src/cad/Parser.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/vfpga_core.dir/build.make CMakeFiles/vfpga_core.dir/src/cad/Parser.cpp.s
 .PHONY : src/cad/Parser.cpp.s
+
+src/cad/Placer.o: src/cad/Placer.cpp.o
+.PHONY : src/cad/Placer.o
+
+# target to build an object file
+src/cad/Placer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vfpga_core.dir/build.make CMakeFiles/vfpga_core.dir/src/cad/Placer.cpp.o
+.PHONY : src/cad/Placer.cpp.o
+
+src/cad/Placer.i: src/cad/Placer.cpp.i
+.PHONY : src/cad/Placer.i
+
+# target to preprocess a source file
+src/cad/Placer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vfpga_core.dir/build.make CMakeFiles/vfpga_core.dir/src/cad/Placer.cpp.i
+.PHONY : src/cad/Placer.cpp.i
+
+src/cad/Placer.s: src/cad/Placer.cpp.s
+.PHONY : src/cad/Placer.s
+
+# target to generate assembly for a file
+src/cad/Placer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vfpga_core.dir/build.make CMakeFiles/vfpga_core.dir/src/cad/Placer.cpp.s
+.PHONY : src/cad/Placer.cpp.s
 
 src/core/LogicVal.o: src/core/LogicVal.cpp.o
 .PHONY : src/core/LogicVal.o
@@ -360,6 +397,30 @@ tests/parser_test.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/parser_test.dir/build.make CMakeFiles/parser_test.dir/tests/parser_test.cpp.s
 .PHONY : tests/parser_test.cpp.s
 
+tests/placer_test.o: tests/placer_test.cpp.o
+.PHONY : tests/placer_test.o
+
+# target to build an object file
+tests/placer_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/placer_test.dir/build.make CMakeFiles/placer_test.dir/tests/placer_test.cpp.o
+.PHONY : tests/placer_test.cpp.o
+
+tests/placer_test.i: tests/placer_test.cpp.i
+.PHONY : tests/placer_test.i
+
+# target to preprocess a source file
+tests/placer_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/placer_test.dir/build.make CMakeFiles/placer_test.dir/tests/placer_test.cpp.i
+.PHONY : tests/placer_test.cpp.i
+
+tests/placer_test.s: tests/placer_test.cpp.s
+.PHONY : tests/placer_test.s
+
+# target to generate assembly for a file
+tests/placer_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/placer_test.dir/build.make CMakeFiles/placer_test.dir/tests/placer_test.cpp.s
+.PHONY : tests/placer_test.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -370,6 +431,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... packer_test"
 	@echo "... parser_test"
+	@echo "... placer_test"
 	@echo "... vfpga_core"
 	@echo "... vfpga_test"
 	@echo "... src/cad/Packer.o"
@@ -378,6 +440,9 @@ help:
 	@echo "... src/cad/Parser.o"
 	@echo "... src/cad/Parser.i"
 	@echo "... src/cad/Parser.s"
+	@echo "... src/cad/Placer.o"
+	@echo "... src/cad/Placer.i"
+	@echo "... src/cad/Placer.s"
 	@echo "... src/core/LogicVal.o"
 	@echo "... src/core/LogicVal.i"
 	@echo "... src/core/LogicVal.s"
@@ -396,6 +461,9 @@ help:
 	@echo "... tests/parser_test.o"
 	@echo "... tests/parser_test.i"
 	@echo "... tests/parser_test.s"
+	@echo "... tests/placer_test.o"
+	@echo "... tests/placer_test.i"
+	@echo "... tests/placer_test.s"
 .PHONY : help
 
 
