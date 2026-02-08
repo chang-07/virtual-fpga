@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/vfpga_core.dir/src/cad/Packer.cpp.o"
+  "CMakeFiles/vfpga_core.dir/src/cad/Packer.cpp.o.d"
   "CMakeFiles/vfpga_core.dir/src/cad/Parser.cpp.o"
   "CMakeFiles/vfpga_core.dir/src/cad/Parser.cpp.o.d"
   "CMakeFiles/vfpga_core.dir/src/core/LogicVal.cpp.o"

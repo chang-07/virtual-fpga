@@ -155,6 +155,43 @@ parser_test/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/parser_test.dir/build.make CMakeFiles/parser_test.dir/build
 .PHONY : parser_test/fast
 
+#=============================================================================
+# Target rules for targets named packer_test
+
+# Build rule for target.
+packer_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 packer_test
+.PHONY : packer_test
+
+# fast build rule for target.
+packer_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/packer_test.dir/build.make CMakeFiles/packer_test.dir/build
+.PHONY : packer_test/fast
+
+src/cad/Packer.o: src/cad/Packer.cpp.o
+.PHONY : src/cad/Packer.o
+
+# target to build an object file
+src/cad/Packer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vfpga_core.dir/build.make CMakeFiles/vfpga_core.dir/src/cad/Packer.cpp.o
+.PHONY : src/cad/Packer.cpp.o
+
+src/cad/Packer.i: src/cad/Packer.cpp.i
+.PHONY : src/cad/Packer.i
+
+# target to preprocess a source file
+src/cad/Packer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vfpga_core.dir/build.make CMakeFiles/vfpga_core.dir/src/cad/Packer.cpp.i
+.PHONY : src/cad/Packer.cpp.i
+
+src/cad/Packer.s: src/cad/Packer.cpp.s
+.PHONY : src/cad/Packer.s
+
+# target to generate assembly for a file
+src/cad/Packer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vfpga_core.dir/build.make CMakeFiles/vfpga_core.dir/src/cad/Packer.cpp.s
+.PHONY : src/cad/Packer.cpp.s
+
 src/cad/Parser.o: src/cad/Parser.cpp.o
 .PHONY : src/cad/Parser.o
 
@@ -275,6 +312,30 @@ tests/main_test.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/vfpga_test.dir/build.make CMakeFiles/vfpga_test.dir/tests/main_test.cpp.s
 .PHONY : tests/main_test.cpp.s
 
+tests/packer_test.o: tests/packer_test.cpp.o
+.PHONY : tests/packer_test.o
+
+# target to build an object file
+tests/packer_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/packer_test.dir/build.make CMakeFiles/packer_test.dir/tests/packer_test.cpp.o
+.PHONY : tests/packer_test.cpp.o
+
+tests/packer_test.i: tests/packer_test.cpp.i
+.PHONY : tests/packer_test.i
+
+# target to preprocess a source file
+tests/packer_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/packer_test.dir/build.make CMakeFiles/packer_test.dir/tests/packer_test.cpp.i
+.PHONY : tests/packer_test.cpp.i
+
+tests/packer_test.s: tests/packer_test.cpp.s
+.PHONY : tests/packer_test.s
+
+# target to generate assembly for a file
+tests/packer_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/packer_test.dir/build.make CMakeFiles/packer_test.dir/tests/packer_test.cpp.s
+.PHONY : tests/packer_test.cpp.s
+
 tests/parser_test.o: tests/parser_test.cpp.o
 .PHONY : tests/parser_test.o
 
@@ -307,9 +368,13 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... packer_test"
 	@echo "... parser_test"
 	@echo "... vfpga_core"
 	@echo "... vfpga_test"
+	@echo "... src/cad/Packer.o"
+	@echo "... src/cad/Packer.i"
+	@echo "... src/cad/Packer.s"
 	@echo "... src/cad/Parser.o"
 	@echo "... src/cad/Parser.i"
 	@echo "... src/cad/Parser.s"
@@ -325,6 +390,9 @@ help:
 	@echo "... tests/main_test.o"
 	@echo "... tests/main_test.i"
 	@echo "... tests/main_test.s"
+	@echo "... tests/packer_test.o"
+	@echo "... tests/packer_test.i"
+	@echo "... tests/packer_test.s"
 	@echo "... tests/parser_test.o"
 	@echo "... tests/parser_test.i"
 	@echo "... tests/parser_test.s"

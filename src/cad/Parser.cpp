@@ -67,8 +67,6 @@ std::optional<Netlist> Parser::from_json(const std::string &filename) {
         if (cell_data.contains("parameters")) {
           for (auto &[param_name, param_val] :
                cell_data["parameters"].items()) {
-            // Some params are strings, some ints. Convert to string for
-            // storage.
             if (param_val.is_string()) {
               cell->parameters[param_name] = param_val;
             } else {
@@ -77,25 +75,37 @@ std::optional<Netlist> Parser::from_json(const std::string &filename) {
           }
         }
 
+        // Port Directions (Optional but important for Packer)
+        std::map<std::string, PortDirection> known_dirs;
+        if (cell_data.contains("port_directions")) {
+          for (auto &[pname, pdir_str] : cell_data["port_directions"].items()) {
+            if (pdir_str == "input")
+              known_dirs[pname] = PortDirection::INPUT;
+            else if (pdir_str == "output")
+              known_dirs[pname] = PortDirection::OUTPUT;
+            else
+              known_dirs[pname] = PortDirection::INOUT;
+          }
+        }
+
         // Port Connections
         if (cell_data.contains("connections")) {
           for (auto &[port_name, conn_bits] :
                cell_data["connections"].items()) {
-            // Determine direction based on cell type knowledge or assume
-            // generic? For generic parser, we just need to know which net
-            // connects to which port
-            PortDirection dir = PortDirection::INOUT; // Placeholder
+
+            // Determine direction
+            PortDirection dir = PortDirection::INOUT; // Default
+            if (known_dirs.count(port_name)) {
+              dir = known_dirs[port_name];
+            }
+
             cell->add_port(port_name, dir);
 
             // conn_bits is usually an array of integers (net IDs).
-            // For simplicity, we'll map bit indices to string names.
             for (auto &bit : conn_bits) {
               if (bit.is_number_integer()) {
                 std::string net_name = "net_" + std::to_string((int)bit);
                 netlist.connect(cell_name, port_name, net_name);
-              } else if (bit.is_string()) {
-                // Constants like "0", "1", "x"?
-                // Yosys uses integers for nets. strings might be constants.
               }
             }
           }
