@@ -142,6 +142,43 @@ vfpga_test/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/vfpga_test.dir/build.make CMakeFiles/vfpga_test.dir/build
 .PHONY : vfpga_test/fast
 
+#=============================================================================
+# Target rules for targets named parser_test
+
+# Build rule for target.
+parser_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 parser_test
+.PHONY : parser_test
+
+# fast build rule for target.
+parser_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/parser_test.dir/build.make CMakeFiles/parser_test.dir/build
+.PHONY : parser_test/fast
+
+src/cad/Parser.o: src/cad/Parser.cpp.o
+.PHONY : src/cad/Parser.o
+
+# target to build an object file
+src/cad/Parser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vfpga_core.dir/build.make CMakeFiles/vfpga_core.dir/src/cad/Parser.cpp.o
+.PHONY : src/cad/Parser.cpp.o
+
+src/cad/Parser.i: src/cad/Parser.cpp.i
+.PHONY : src/cad/Parser.i
+
+# target to preprocess a source file
+src/cad/Parser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vfpga_core.dir/build.make CMakeFiles/vfpga_core.dir/src/cad/Parser.cpp.i
+.PHONY : src/cad/Parser.cpp.i
+
+src/cad/Parser.s: src/cad/Parser.cpp.s
+.PHONY : src/cad/Parser.s
+
+# target to generate assembly for a file
+src/cad/Parser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vfpga_core.dir/build.make CMakeFiles/vfpga_core.dir/src/cad/Parser.cpp.s
+.PHONY : src/cad/Parser.cpp.s
+
 src/core/LogicVal.o: src/core/LogicVal.cpp.o
 .PHONY : src/core/LogicVal.o
 
@@ -238,6 +275,30 @@ tests/main_test.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/vfpga_test.dir/build.make CMakeFiles/vfpga_test.dir/tests/main_test.cpp.s
 .PHONY : tests/main_test.cpp.s
 
+tests/parser_test.o: tests/parser_test.cpp.o
+.PHONY : tests/parser_test.o
+
+# target to build an object file
+tests/parser_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/parser_test.dir/build.make CMakeFiles/parser_test.dir/tests/parser_test.cpp.o
+.PHONY : tests/parser_test.cpp.o
+
+tests/parser_test.i: tests/parser_test.cpp.i
+.PHONY : tests/parser_test.i
+
+# target to preprocess a source file
+tests/parser_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/parser_test.dir/build.make CMakeFiles/parser_test.dir/tests/parser_test.cpp.i
+.PHONY : tests/parser_test.cpp.i
+
+tests/parser_test.s: tests/parser_test.cpp.s
+.PHONY : tests/parser_test.s
+
+# target to generate assembly for a file
+tests/parser_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/parser_test.dir/build.make CMakeFiles/parser_test.dir/tests/parser_test.cpp.s
+.PHONY : tests/parser_test.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -246,8 +307,12 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... parser_test"
 	@echo "... vfpga_core"
 	@echo "... vfpga_test"
+	@echo "... src/cad/Parser.o"
+	@echo "... src/cad/Parser.i"
+	@echo "... src/cad/Parser.s"
 	@echo "... src/core/LogicVal.o"
 	@echo "... src/core/LogicVal.i"
 	@echo "... src/core/LogicVal.s"
@@ -260,6 +325,9 @@ help:
 	@echo "... tests/main_test.o"
 	@echo "... tests/main_test.i"
 	@echo "... tests/main_test.s"
+	@echo "... tests/parser_test.o"
+	@echo "... tests/parser_test.i"
+	@echo "... tests/parser_test.s"
 .PHONY : help
 
 

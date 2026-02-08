@@ -50,4 +50,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/vfpga_core.dir/DependInfo.cmake"
   "CMakeFiles/vfpga_test.dir/DependInfo.cmake"
+  "CMakeFiles/parser_test.dir/DependInfo.cmake"
   )

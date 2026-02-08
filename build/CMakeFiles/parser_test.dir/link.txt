@@ -1,0 +1,1 @@
+/usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/parser_test.dir/tests/parser_test.cpp.o -o parser_test  libvfpga_core.a

@@ -1,4 +1,5 @@
 /Users/chang/coding/virtual-fpga/build/CMakeFiles/vfpga_core.dir
 /Users/chang/coding/virtual-fpga/build/CMakeFiles/vfpga_test.dir
+/Users/chang/coding/virtual-fpga/build/CMakeFiles/parser_test.dir
 /Users/chang/coding/virtual-fpga/build/CMakeFiles/edit_cache.dir
 /Users/chang/coding/virtual-fpga/build/CMakeFiles/rebuild_cache.dir

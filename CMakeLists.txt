@@ -17,6 +17,8 @@ set(CORE_SOURCES
     src/core/LogicVal.cpp
     src/core/Signal.cpp
     src/fabric/BitstreamLoader.cpp
+    src/cad/Parser.cpp
+
 )
 
 # Create library for core logic
@@ -26,3 +28,6 @@ target_include_directories(vfpga_core PUBLIC src)
 # Test executable
 add_executable(vfpga_test tests/main_test.cpp)
 target_link_libraries(vfpga_test PRIVATE vfpga_core)
+
+add_executable(parser_test tests/parser_test.cpp)
+target_link_libraries(parser_test PRIVATE vfpga_core)

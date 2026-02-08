@@ -1,0 +1,78 @@
+{
+    "creator": "Yosys 0.9 (git sha1 1979e0b)",
+    "modules": {
+        "top": {
+            "attributes": {
+                "top": 1
+            },
+            "ports": {
+                "clk": {
+                    "direction": "input",
+                    "bits": [
+                        2
+                    ]
+                },
+                "led": {
+                    "direction": "output",
+                    "bits": [
+                        3
+                    ]
+                }
+            },
+            "cells": {
+                "$lut$top$0": {
+                    "hide_name": 1,
+                    "type": "$lut",
+                    "parameters": {
+                        "WIDTH": 2,
+                        "LUT": 6
+                    },
+                    "attributes": {
+                        "src": "top.v:10"
+                    },
+                    "port_directions": {
+                        "A": "input",
+                        "Y": "output"
+                    },
+                    "connections": {
+                        "A": [
+                            2,
+                            2
+                        ],
+                        "Y": [
+                            3
+                        ]
+                    }
+                },
+                "fd": {
+                    "type": "DFF",
+                    "connections": {
+                        "D": [
+                            3
+                        ],
+                        "Q": [
+                            4
+                        ],
+                        "C": [
+                            2
+                        ]
+                    }
+                }
+            },
+            "netnames": {
+                "clk": {
+                    "hide_name": 0,
+                    "bits": [
+                        2
+                    ]
+                },
+                "led": {
+                    "hide_name": 0,
+                    "bits": [
+                        3
+                    ]
+                }
+            }
+        }
+    }
+}
