@@ -1,0 +1,13 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/vfpga_core.dir/src/core/LogicVal.cpp.o"
+  "CMakeFiles/vfpga_core.dir/src/core/LogicVal.cpp.o.d"
+  "CMakeFiles/vfpga_core.dir/src/core/Signal.cpp.o"
+  "CMakeFiles/vfpga_core.dir/src/core/Signal.cpp.o.d"
+  "libvfpga_core.a"
+  "libvfpga_core.pdb"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/vfpga_core.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

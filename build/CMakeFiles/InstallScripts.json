@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/Users/chang/coding/virtual-fpga/build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
