@@ -1,6 +1,9 @@
 #pragma once
 
+#include "../analysis/TimingAnalyzer.hpp"
+#include "../cad/Router.hpp"
 #include "../fabric/Fabric.hpp"
+#include <functional>
 #include <string>
 
 namespace vfpga {
@@ -18,7 +21,8 @@ public:
   // ...
 
   // Main draw loop with UI callbacks
-  void draw(const Fabric &fabric, std::function<void()> on_step = nullptr,
+  void draw(const Fabric &fabric, const Router &router,
+            const TimingResult &timing, std::function<void()> on_step = nullptr,
             std::function<void()> on_reset = nullptr);
 
 private:

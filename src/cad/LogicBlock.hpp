@@ -1,5 +1,6 @@
 #pragma once
 
+#include "../fabric/Tile.hpp"
 #include "../primitives/LUT.hpp"
 #include <map>
 #include <string>
@@ -10,6 +11,7 @@ namespace vfpga {
 struct LogicBlock {
   int id; // Unique ID for placement solver
   std::string name;
+  TileType type = TileType::CLB; // Default to CLB
 
   // Resources used
   bool use_lut;

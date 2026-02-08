@@ -1,9 +1,11 @@
 CMakeFiles/renderer_test.dir/tests/renderer_test.cpp.o: \
   /Users/chang/coding/virtual-fpga/tests/renderer_test.cpp \
-  /Users/chang/coding/virtual-fpga/tests/../src/fabric/Fabric.hpp \
-  /Users/chang/coding/virtual-fpga/tests/../src/fabric/Tile.hpp \
-  /Users/chang/coding/virtual-fpga/tests/../src/fabric/../primitives/BRAM.hpp \
-  /Users/chang/coding/virtual-fpga/tests/../src/fabric/../primitives/../core/LogicVal.hpp \
+  /Users/chang/coding/virtual-fpga/tests/../src/analysis/TimingAnalyzer.hpp \
+  /Users/chang/coding/virtual-fpga/tests/../src/analysis/../cad/Router.hpp \
+  /Users/chang/coding/virtual-fpga/tests/../src/analysis/../cad/../fabric/Fabric.hpp \
+  /Users/chang/coding/virtual-fpga/tests/../src/analysis/../cad/../fabric/Tile.hpp \
+  /Users/chang/coding/virtual-fpga/tests/../src/analysis/../cad/../fabric/../primitives/BRAM.hpp \
+  /Users/chang/coding/virtual-fpga/tests/../src/analysis/../cad/../fabric/../primitives/../core/LogicVal.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__assert \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__assertion_handler \
@@ -959,10 +961,20 @@ CMakeFiles/renderer_test.dir/tests/renderer_test.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__format/formatter_tuple.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/print \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/unistd.h \
-  /Users/chang/coding/virtual-fpga/tests/../src/fabric/../primitives/DFF.hpp \
-  /Users/chang/coding/virtual-fpga/tests/../src/fabric/../primitives/DSP.hpp \
-  /Users/chang/coding/virtual-fpga/tests/../src/fabric/../primitives/LUT.hpp \
+  /Users/chang/coding/virtual-fpga/tests/../src/analysis/../cad/../fabric/../primitives/DFF.hpp \
+  /Users/chang/coding/virtual-fpga/tests/../src/analysis/../cad/../fabric/../primitives/DSP.hpp \
+  /Users/chang/coding/virtual-fpga/tests/../src/analysis/../cad/../fabric/../primitives/LUT.hpp \
+  /Users/chang/coding/virtual-fpga/tests/../src/analysis/../cad/LogicBlock.hpp \
+  /Users/chang/coding/virtual-fpga/tests/../src/analysis/../cad/../primitives/LUT.hpp \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/map \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__tree \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/set \
+  /Users/chang/coding/virtual-fpga/tests/../src/analysis/../fabric/Fabric.hpp \
+  /Users/chang/coding/virtual-fpga/tests/../src/cad/Router.hpp \
+  /Users/chang/coding/virtual-fpga/tests/../src/fabric/Fabric.hpp \
   /Users/chang/coding/virtual-fpga/tests/../src/ui/Renderer.hpp \
+  /Users/chang/coding/virtual-fpga/tests/../src/ui/../analysis/TimingAnalyzer.hpp \
+  /Users/chang/coding/virtual-fpga/tests/../src/ui/../cad/Router.hpp \
   /Users/chang/coding/virtual-fpga/tests/../src/ui/../fabric/Fabric.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/cassert \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/assert.h \

@@ -964,6 +964,11 @@ CMakeFiles/packer_test.dir/tests/packer_test.cpp.o: /Users/chang/coding/virtual-
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/xlocale/_wchar.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/xlocale/_wctype.h \
   /Users/chang/coding/virtual-fpga/src/core/LogicVal.hpp \
+  /Users/chang/coding/virtual-fpga/src/primitives/BRAM.hpp \
+  /Users/chang/coding/virtual-fpga/src/primitives/DFF.hpp \
+  /Users/chang/coding/virtual-fpga/src/primitives/DSP.hpp \
+  /Users/chang/coding/virtual-fpga/src/primitives/LUT.hpp \
+  /Users/chang/coding/virtual-fpga/src/fabric/Tile.hpp \
   /Users/chang/coding/virtual-fpga/src/primitives/LUT.hpp \
   /Users/chang/coding/virtual-fpga/src/cad/LogicBlock.hpp \
   /Users/chang/coding/virtual-fpga/src/cad/Netlist.hpp \
@@ -978,6 +983,10 @@ CMakeFiles/packer_test.dir/tests/packer_test.cpp.o: /Users/chang/coding/virtual-
 /Users/chang/coding/virtual-fpga/src/cad/LogicBlock.hpp:
 
 /Users/chang/coding/virtual-fpga/src/primitives/LUT.hpp:
+
+/Users/chang/coding/virtual-fpga/src/primitives/DFF.hpp:
+
+/Users/chang/coding/virtual-fpga/src/primitives/BRAM.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/xlocale/_string.h:
 
@@ -1925,6 +1934,8 @@ CMakeFiles/packer_test.dir/tests/packer_test.cpp.o: /Users/chang/coding/virtual-
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/shuffle.h:
 
+/Users/chang/coding/virtual-fpga/src/primitives/DSP.hpp:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__concepts/different_from.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__concepts/derived_from.h:
@@ -2856,6 +2867,8 @@ CMakeFiles/packer_test.dir/tests/packer_test.cpp.o: /Users/chang/coding/virtual-
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_ptr.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/in_in_result.h:
+
+/Users/chang/coding/virtual-fpga/src/fabric/Tile.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/noexcept_move_assign_container.h:
 

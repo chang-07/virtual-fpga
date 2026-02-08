@@ -30,7 +30,7 @@ struct TimingNode {
 struct TimingResult {
   double fmax_mhz;
   double critical_path_delay_ns;
-  std::vector<std::string> critical_path_nodes;
+  std::vector<std::pair<int, int>> critical_path_nodes;
 };
 
 class TimingAnalyzer {

@@ -44,6 +44,7 @@ public:
     };
     Point source;
     std::vector<Point> sinks;
+    std::vector<Point> path; // Full routing path (list of nodes/tiles)
   };
   std::vector<Net> nets; // Instance member, but route is static...
   // We should probably make Router a class instance, or just return nets from

@@ -1,8 +1,9 @@
 CMakeFiles/placer_test.dir/tests/placer_test.cpp.o: \
   /Users/chang/coding/virtual-fpga/tests/placer_test.cpp \
   /Users/chang/coding/virtual-fpga/tests/../src/cad/LogicBlock.hpp \
-  /Users/chang/coding/virtual-fpga/tests/../src/cad/../primitives/LUT.hpp \
-  /Users/chang/coding/virtual-fpga/tests/../src/cad/../primitives/../core/LogicVal.hpp \
+  /Users/chang/coding/virtual-fpga/tests/../src/cad/../fabric/Tile.hpp \
+  /Users/chang/coding/virtual-fpga/tests/../src/cad/../fabric/../primitives/BRAM.hpp \
+  /Users/chang/coding/virtual-fpga/tests/../src/cad/../fabric/../primitives/../core/LogicVal.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__assert \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__assertion_handler \
@@ -958,16 +959,14 @@ CMakeFiles/placer_test.dir/tests/placer_test.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__format/formatter_tuple.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/print \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/unistd.h \
+  /Users/chang/coding/virtual-fpga/tests/../src/cad/../fabric/../primitives/DFF.hpp \
+  /Users/chang/coding/virtual-fpga/tests/../src/cad/../fabric/../primitives/DSP.hpp \
+  /Users/chang/coding/virtual-fpga/tests/../src/cad/../fabric/../primitives/LUT.hpp \
+  /Users/chang/coding/virtual-fpga/tests/../src/cad/../primitives/LUT.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/map \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__tree \
   /Users/chang/coding/virtual-fpga/tests/../src/cad/Placer.hpp \
   /Users/chang/coding/virtual-fpga/tests/../src/cad/../fabric/Fabric.hpp \
-  /Users/chang/coding/virtual-fpga/tests/../src/cad/../fabric/Tile.hpp \
-  /Users/chang/coding/virtual-fpga/tests/../src/cad/../fabric/../primitives/BRAM.hpp \
-  /Users/chang/coding/virtual-fpga/tests/../src/cad/../fabric/../primitives/../core/LogicVal.hpp \
-  /Users/chang/coding/virtual-fpga/tests/../src/cad/../fabric/../primitives/DFF.hpp \
-  /Users/chang/coding/virtual-fpga/tests/../src/cad/../fabric/../primitives/DSP.hpp \
-  /Users/chang/coding/virtual-fpga/tests/../src/cad/../fabric/../primitives/LUT.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/random \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/bernoulli_distribution.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/uniform_real_distribution.h \

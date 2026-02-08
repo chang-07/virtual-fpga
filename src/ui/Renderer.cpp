@@ -32,7 +32,8 @@ Renderer::~Renderer() { CloseWindow(); }
 
 bool Renderer::should_close() { return WindowShouldClose(); }
 
-void Renderer::draw(const Fabric &fabric, std::function<void()> on_step,
+void Renderer::draw(const Fabric &fabric, const Router &router,
+                    const TimingResult &timing, std::function<void()> on_step,
                     std::function<void()> on_reset) {
   BeginDrawing();
   ClearBackground(RAYWHITE);
@@ -42,6 +43,50 @@ void Renderer::draw(const Fabric &fabric, std::function<void()> on_step,
   // For now, let's cast away constness locally to enable the toggle hack.
   // In a real app, we'd have a separate input handling phase.
   draw_grid(const_cast<Fabric &>(fabric));
+
+  // Draw Wires (Routing)
+  int padding = 20; // Must match draw_grid
+  int available_w = window_width - 2 * padding;
+  int available_h = window_height - 100; // - UI height
+  int tile_w = available_w / fabric.width;
+  int tile_h = available_h / fabric.height;
+  int tile_size = (tile_w < tile_h) ? tile_w : tile_h;
+  int grid_start_x = (window_width - (tile_size * fabric.width)) / 2;
+  int grid_start_y = (available_h - (tile_size * fabric.height)) / 2 + padding;
+
+  auto get_center = [&](int tx, int ty) {
+    return Vector2{
+        static_cast<float>(grid_start_x + tx * tile_size + tile_size / 2),
+        static_cast<float>(grid_start_y + ty * tile_size + tile_size / 2)};
+  };
+
+  // Draw all nets
+  for (const auto &net : router.nets) {
+    if (net.path.size() > 1) {
+      for (size_t i = 0; i < net.path.size() - 1; ++i) {
+        Vector2 start = get_center(net.path[i].x, net.path[i].y);
+        Vector2 end = get_center(net.path[i + 1].x, net.path[i + 1].y);
+        DrawLineEx(start, end, 2.0f, LIGHTGRAY);
+      }
+    } else if (!net.sinks.empty()) {
+      // Fallback for direct connections if path is empty
+      Vector2 src = get_center(net.source.x, net.source.y);
+      for (const auto &sink : net.sinks) {
+        Vector2 dst = get_center(sink.x, sink.y);
+        DrawLineEx(src, dst, 1.0f, Fade(GRAY, 0.5f));
+      }
+    }
+  }
+
+  // Highlight Critical Path Nodes
+  for (const auto &node : timing.critical_path_nodes) {
+    int cx = node.first;
+    int cy = node.second;
+    int px = grid_start_x + cx * tile_size;
+    int py = grid_start_y + cy * tile_size;
+    DrawRectangleLinesEx(
+        {(float)px, (float)py, (float)tile_size, (float)tile_size}, 3.0f, RED);
+  }
 
   // Draw UI Panel
   // Bottom bar

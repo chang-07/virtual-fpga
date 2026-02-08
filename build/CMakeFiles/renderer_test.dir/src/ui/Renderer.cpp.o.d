@@ -1,10 +1,12 @@
 CMakeFiles/renderer_test.dir/src/ui/Renderer.cpp.o: \
   /Users/chang/coding/virtual-fpga/src/ui/Renderer.cpp \
   /Users/chang/coding/virtual-fpga/src/ui/Renderer.hpp \
-  /Users/chang/coding/virtual-fpga/src/ui/../fabric/Fabric.hpp \
-  /Users/chang/coding/virtual-fpga/src/ui/../fabric/Tile.hpp \
-  /Users/chang/coding/virtual-fpga/src/ui/../fabric/../primitives/BRAM.hpp \
-  /Users/chang/coding/virtual-fpga/src/ui/../fabric/../primitives/../core/LogicVal.hpp \
+  /Users/chang/coding/virtual-fpga/src/ui/../analysis/TimingAnalyzer.hpp \
+  /Users/chang/coding/virtual-fpga/src/ui/../analysis/../cad/Router.hpp \
+  /Users/chang/coding/virtual-fpga/src/ui/../analysis/../cad/../fabric/Fabric.hpp \
+  /Users/chang/coding/virtual-fpga/src/ui/../analysis/../cad/../fabric/Tile.hpp \
+  /Users/chang/coding/virtual-fpga/src/ui/../analysis/../cad/../fabric/../primitives/BRAM.hpp \
+  /Users/chang/coding/virtual-fpga/src/ui/../analysis/../cad/../fabric/../primitives/../core/LogicVal.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__assert \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__assertion_handler \
@@ -960,8 +962,16 @@ CMakeFiles/renderer_test.dir/src/ui/Renderer.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__format/formatter_tuple.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/print \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/unistd.h \
-  /Users/chang/coding/virtual-fpga/src/ui/../fabric/../primitives/DFF.hpp \
-  /Users/chang/coding/virtual-fpga/src/ui/../fabric/../primitives/DSP.hpp \
-  /Users/chang/coding/virtual-fpga/src/ui/../fabric/../primitives/LUT.hpp \
+  /Users/chang/coding/virtual-fpga/src/ui/../analysis/../cad/../fabric/../primitives/DFF.hpp \
+  /Users/chang/coding/virtual-fpga/src/ui/../analysis/../cad/../fabric/../primitives/DSP.hpp \
+  /Users/chang/coding/virtual-fpga/src/ui/../analysis/../cad/../fabric/../primitives/LUT.hpp \
+  /Users/chang/coding/virtual-fpga/src/ui/../analysis/../cad/LogicBlock.hpp \
+  /Users/chang/coding/virtual-fpga/src/ui/../analysis/../cad/../primitives/LUT.hpp \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/map \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__tree \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/set \
+  /Users/chang/coding/virtual-fpga/src/ui/../analysis/../fabric/Fabric.hpp \
+  /Users/chang/coding/virtual-fpga/src/ui/../cad/Router.hpp \
+  /Users/chang/coding/virtual-fpga/src/ui/../fabric/Fabric.hpp \
   /Users/chang/coding/virtual-fpga/src/ui/raygui.h \
   /Users/chang/coding/virtual-fpga/build/_deps/raylib-src/src/raylib.h

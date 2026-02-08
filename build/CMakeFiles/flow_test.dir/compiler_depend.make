@@ -1019,7 +1019,6 @@ CMakeFiles/flow_test.dir/tests/flow_test.cpp.o: /Users/chang/coding/virtual-fpga
   /Users/chang/coding/virtual-fpga/src/primitives/LUT.hpp \
   /Users/chang/coding/virtual-fpga/src/fabric/Fabric.hpp \
   /Users/chang/coding/virtual-fpga/src/fabric/Tile.hpp \
-  /Users/chang/coding/virtual-fpga/src/core/LogicVal.hpp \
   /Users/chang/coding/virtual-fpga/src/primitives/LUT.hpp \
   /Users/chang/coding/virtual-fpga/src/cad/LogicBlock.hpp \
   /Users/chang/coding/virtual-fpga/src/cad/Netlist.hpp \

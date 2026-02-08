@@ -1932,6 +1932,11 @@ CMakeFiles/vfpga_core.dir/src/cad/Packer.cpp.o: /Users/chang/coding/virtual-fpga
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/xlocale/_wchar.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/xlocale/_wctype.h \
   /Users/chang/coding/virtual-fpga/src/core/LogicVal.hpp \
+  /Users/chang/coding/virtual-fpga/src/primitives/BRAM.hpp \
+  /Users/chang/coding/virtual-fpga/src/primitives/DFF.hpp \
+  /Users/chang/coding/virtual-fpga/src/primitives/DSP.hpp \
+  /Users/chang/coding/virtual-fpga/src/primitives/LUT.hpp \
+  /Users/chang/coding/virtual-fpga/src/fabric/Tile.hpp \
   /Users/chang/coding/virtual-fpga/src/primitives/LUT.hpp \
   /Users/chang/coding/virtual-fpga/src/cad/LogicBlock.hpp \
   /Users/chang/coding/virtual-fpga/src/cad/Netlist.hpp \

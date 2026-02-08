@@ -971,7 +971,6 @@ CMakeFiles/router_test.dir/tests/router_test.cpp.o: /Users/chang/coding/virtual-
   /Users/chang/coding/virtual-fpga/src/primitives/LUT.hpp \
   /Users/chang/coding/virtual-fpga/src/fabric/Fabric.hpp \
   /Users/chang/coding/virtual-fpga/src/fabric/Tile.hpp \
-  /Users/chang/coding/virtual-fpga/src/core/LogicVal.hpp \
   /Users/chang/coding/virtual-fpga/src/primitives/LUT.hpp \
   /Users/chang/coding/virtual-fpga/src/cad/LogicBlock.hpp \
   /Users/chang/coding/virtual-fpga/src/cad/Router.hpp \
